@@ -1,10 +1,15 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Fuel, Gauge, Users, MapPin } from 'lucide-react'
+import { Fuel, Gauge, Users, MapPin, Car as CarIcon } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { formatCurrency, weeklyToMonthly } from '@/lib/utils/format'
 import type { Car, CarImage } from '@/lib/types/database'
+
+const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=80'
 
 interface CarCardProps {
   car: Car
@@ -12,20 +17,22 @@ interface CarCardProps {
 }
 
 export function CarCard({ car, primaryImage }: CarCardProps) {
-  const imageUrl =
-    primaryImage?.image_url ??
-    `https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=80`
+  const [imgError, setImgError] = useState(false)
+  const imageUrl = imgError
+    ? FALLBACK_IMAGE
+    : (primaryImage?.image_url ?? FALLBACK_IMAGE)
 
   return (
     <article className="bg-white rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-xl hover:border-[#1E40AF]/20 transition-all duration-300 group card-hover flex flex-col">
       {/* Image */}
-      <div className="relative h-52 overflow-hidden">
+      <div className="relative h-52 overflow-hidden bg-[#F1F5F9]">
         <Image
           src={imageUrl}
           alt={`${car.year} ${car.make} ${car.model}`}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          onError={() => setImgError(true)}
         />
         {/* Badge */}
         {car.badge_label && (
