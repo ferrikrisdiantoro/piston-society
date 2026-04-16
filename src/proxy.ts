@@ -36,15 +36,13 @@ export async function proxy(request: NextRequest) {
   }
 
   // Protect /admin routes (except /admin/login)
+  // Do NOT redirect authenticated users away from /admin/login here —
+  // that causes a redirect loop when session cookies don't survive the 307.
+  // The login page handles the already-logged-in case client-side.
   const { pathname } = request.nextUrl
 
   if (pathname.startsWith('/admin') && pathname !== '/admin/login' && !user) {
     return NextResponse.redirect(new URL('/admin/login', request.url))
-  }
-
-  // Redirect authenticated user away from login page
-  if (pathname === '/admin/login' && user) {
-    return NextResponse.redirect(new URL('/admin', request.url))
   }
 
   return supabaseResponse
