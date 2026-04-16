@@ -146,7 +146,7 @@ export default function NewCarPage() {
                 <label key={f} className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
-                    className="accent-[#E85D2A] w-4 h-4"
+                    className="accent-[#2563EB] w-4 h-4"
                     checked={features.includes(f)}
                     onChange={(e) => {
                       setFeatures(prev =>
@@ -167,11 +167,11 @@ export default function NewCarPage() {
               <Select label="Badge Label" options={BADGE_LABELS} {...register('badge_label')} />
               <div className="flex items-center gap-6 pt-6">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="accent-[#E85D2A] w-4 h-4" {...register('is_featured')} />
+                  <input type="checkbox" className="accent-[#2563EB] w-4 h-4" {...register('is_featured')} />
                   <span className="text-sm font-semibold text-[#1E293B]">Featured on Homepage</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="accent-[#E85D2A] w-4 h-4" {...register('is_available')} />
+                  <input type="checkbox" className="accent-[#2563EB] w-4 h-4" {...register('is_available')} />
                   <span className="text-sm font-semibold text-[#1E293B]">Available</span>
                 </label>
               </div>

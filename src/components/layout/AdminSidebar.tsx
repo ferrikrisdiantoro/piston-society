@@ -43,7 +43,7 @@ export function AdminSidebar() {
     <>
       {/* Logo */}
       <div className="flex items-center gap-2.5 px-4 py-5 border-b border-white/10">
-        <div className="bg-[#E85D2A] rounded-lg p-1.5">
+        <div className="bg-[#2563EB] rounded-lg p-1.5">
           <Car className="h-4 w-4 text-white" aria-hidden="true" />
         </div>
         <div>
@@ -68,7 +68,7 @@ export function AdminSidebar() {
               className={cn(
                 'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all',
                 isActive
-                  ? 'bg-[#E85D2A] text-white'
+                  ? 'bg-[#2563EB] text-white'
                   : 'text-white/70 hover:text-white hover:bg-white/10'
               )}
               aria-current={isActive ? 'page' : undefined}
@@ -96,14 +96,14 @@ export function AdminSidebar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:flex flex-col w-56 bg-[#0F172A] min-h-screen flex-shrink-0">
+      <aside className="hidden lg:flex flex-col w-56 bg-[#0F1A4F] min-h-screen flex-shrink-0">
         <NavContent />
       </aside>
 
       {/* Mobile Topbar */}
-      <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-[#0F172A] border-b border-white/10">
+      <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-[#0F1A4F] border-b border-white/10">
         <div className="flex items-center gap-2">
-          <div className="bg-[#E85D2A] rounded-lg p-1.5">
+          <div className="bg-[#2563EB] rounded-lg p-1.5">
             <Car className="h-4 w-4 text-white" aria-hidden="true" />
           </div>
           <span className="text-white font-heading font-bold text-sm">Admin</span>
@@ -125,7 +125,7 @@ export function AdminSidebar() {
             onClick={() => setMobileOpen(false)}
             aria-hidden="true"
           />
-          <aside className="absolute left-0 top-0 bottom-0 w-64 bg-[#0F172A] flex flex-col">
+          <aside className="absolute left-0 top-0 bottom-0 w-64 bg-[#0F1A4F] flex flex-col">
             <NavContent />
           </aside>
         </div>

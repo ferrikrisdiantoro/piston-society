@@ -25,7 +25,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero */}
-      <section className="relative bg-[#1E3A5F] pt-28 pb-20 overflow-hidden">
+      <section className="relative bg-[#1E40AF] pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10" aria-hidden="true">
           <Image
             src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=60"
@@ -35,7 +35,7 @@ export default function AboutPage() {
           />
         </div>
         <div className="container-custom relative z-10">
-          <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-4">About Us</p>
+          <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-4">About Us</p>
           <h1 className="text-white font-heading font-bold text-4xl md:text-5xl mb-4 max-w-2xl">
             About Piston Society
           </h1>
@@ -50,7 +50,7 @@ export default function AboutPage() {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-3">Our Story</p>
+              <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-3">Our Story</p>
               <h2 className="text-[#1E293B] mb-6">
                 Driven by a Better Idea
               </h2>
@@ -83,8 +83,8 @@ export default function AboutPage() {
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-2xl p-8 border border-[#E2E8F0]">
-              <div className="inline-flex p-3 rounded-xl bg-[#E85D2A]/10 mb-5">
-                <Target className="h-6 w-6 text-[#E85D2A]" aria-hidden="true" />
+              <div className="inline-flex p-3 rounded-xl bg-[#2563EB]/10 mb-5">
+                <Target className="h-6 w-6 text-[#2563EB]" aria-hidden="true" />
               </div>
               <h3 className="text-[#1E293B] font-bold text-xl mb-3 font-heading">Our Mission</h3>
               <p className="text-[#64748B] leading-relaxed">
@@ -92,8 +92,8 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="bg-white rounded-2xl p-8 border border-[#E2E8F0]">
-              <div className="inline-flex p-3 rounded-xl bg-[#1E3A5F]/10 mb-5">
-                <Eye className="h-6 w-6 text-[#1E3A5F]" aria-hidden="true" />
+              <div className="inline-flex p-3 rounded-xl bg-[#1E40AF]/10 mb-5">
+                <Eye className="h-6 w-6 text-[#1E40AF]" aria-hidden="true" />
               </div>
               <h3 className="text-[#1E293B] font-bold text-xl mb-3 font-heading">Our Vision</h3>
               <p className="text-[#64748B] leading-relaxed">
@@ -108,12 +108,12 @@ export default function AboutPage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-3">Why Us</p>
+            <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-3">Why Us</p>
             <h2 className="text-[#1E293B]">Why Choose Piston Society?</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {usps.map((usp) => (
-              <div key={usp.title} className="flex gap-4 p-5 rounded-2xl border border-[#E2E8F0] hover:border-[#E85D2A]/30 hover:shadow-md transition-all">
+              <div key={usp.title} className="flex gap-4 p-5 rounded-2xl border border-[#E2E8F0] hover:border-[#2563EB]/30 hover:shadow-md transition-all">
                 <CheckCircle2 className="h-5 w-5 text-[#22C55E] flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
                   <h4 className="font-bold text-[#1E293B] mb-1">{usp.title}</h4>
@@ -129,14 +129,14 @@ export default function AboutPage() {
       <section className="section-padding bg-[#F8FAFC]">
         <div className="container-custom">
           <div className="text-center max-w-xl mx-auto mb-10">
-            <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-3">Coverage</p>
+            <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-3">Coverage</p>
             <h2 className="text-[#1E293B] mb-4">Where We Operate</h2>
             <p className="text-[#64748B]">We currently service the following major Australian cities, with expansion planned for 2026.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {serviceAreas.map((city) => (
               <div key={city} className="flex items-center gap-2.5 bg-white border border-[#E2E8F0] rounded-xl px-5 py-3 shadow-sm">
-                <MapPin className="h-4 w-4 text-[#E85D2A]" aria-hidden="true" />
+                <MapPin className="h-4 w-4 text-[#2563EB]" aria-hidden="true" />
                 <span className="font-semibold text-[#1E293B] text-sm">{city}</span>
               </div>
             ))}
@@ -145,7 +145,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-[#1E3A5F]">
+      <section className="section-padding bg-[#1E40AF]">
         <div className="container-custom text-center">
           <h2 className="text-white mb-4">Ready to Get Started?</h2>
           <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
@@ -159,7 +159,7 @@ export default function AboutPage() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" size="lg" className="border-white/40 text-white hover:bg-white hover:text-[#1E3A5F]">
+              <Button variant="outline" size="lg" className="border-white/40 text-white hover:bg-white hover:text-[#1E40AF]">
                 Get in Touch
               </Button>
             </Link>

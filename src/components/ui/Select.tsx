@@ -41,7 +41,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             className={cn(
               'w-full px-4 py-3 pr-10 rounded-xl border bg-white text-[#1E293B] text-sm appearance-none',
               'transition-all duration-200 cursor-pointer',
-              'focus:outline-none focus:ring-2 focus:ring-[#E85D2A] focus:border-transparent',
+              'focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent',
               error
                 ? 'border-[#EF4444] bg-[#FEF2F2]'
                 : 'border-[#CBD5E1] hover:border-[#94A3B8]',

@@ -25,7 +25,7 @@ function FilterCheckbox({ label, paramKey, value, checked, onChange }: FilterChe
     <label className="flex items-center gap-2.5 cursor-pointer group">
       <input
         type="checkbox"
-        className="w-4 h-4 rounded border-[#CBD5E1] text-[#E85D2A] accent-[#E85D2A] cursor-pointer"
+        className="w-4 h-4 rounded border-[#CBD5E1] text-[#2563EB] accent-[#2563EB] cursor-pointer"
         checked={checked}
         onChange={(e) => onChange(paramKey, value, e.target.checked)}
       />
@@ -112,16 +112,16 @@ export function CarFilters({ className }: CarFiltersProps) {
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2 text-[#1E293B] font-bold">
-          <SlidersHorizontal className="h-4 w-4 text-[#E85D2A]" aria-hidden="true" />
+          <SlidersHorizontal className="h-4 w-4 text-[#2563EB]" aria-hidden="true" />
           Filters
           {isPending && (
-            <span className="w-3 h-3 rounded-full border-2 border-[#E85D2A] border-t-transparent animate-spin" aria-hidden="true" />
+            <span className="w-3 h-3 rounded-full border-2 border-[#2563EB] border-t-transparent animate-spin" aria-hidden="true" />
           )}
         </div>
         {hasFilters && (
           <button
             onClick={clearAll}
-            className="flex items-center gap-1 text-xs text-[#E85D2A] hover:text-[#C04420] font-semibold transition-colors"
+            className="flex items-center gap-1 text-xs text-[#2563EB] hover:text-[#1D4ED8] font-semibold transition-colors"
           >
             <X className="h-3.5 w-3.5" aria-hidden="true" />
             Clear All
@@ -215,7 +215,7 @@ export function CarFilters({ className }: CarFiltersProps) {
                 <input
                   type="radio"
                   name="location"
-                  className="w-4 h-4 accent-[#E85D2A] cursor-pointer"
+                  className="w-4 h-4 accent-[#2563EB] cursor-pointer"
                   checked={selectedLocation === loc}
                   onChange={() => updateSingle('location', selectedLocation === loc ? '' : loc)}
                 />

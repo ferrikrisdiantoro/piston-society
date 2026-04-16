@@ -2,19 +2,19 @@
 
 @theme {
   /* Brand Colors */
-  --color-primary: #1E3A5F;
-  --color-primary-light: #2A4F7F;
-  --color-primary-dark: #152A44;
+  --color-primary: #1E40AF;
+  --color-primary-light: #2563EB;
+  --color-primary-dark: #1E3A8A;
 
-  --color-secondary: #E85D2A;
-  --color-secondary-light: #F07040;
-  --color-secondary-dark: #C04420;
+  --color-secondary: #2563EB;
+  --color-secondary-light: #3B82F6;
+  --color-secondary-dark: #1D4ED8;
 
-  --color-accent: #14B8A6;
-  --color-accent-light: #2DD4C0;
-  --color-accent-dark: #0D9488;
+  --color-accent: #0EA5E9;
+  --color-accent-light: #38BDF8;
+  --color-accent-dark: #0284C7;
 
-  --color-dark-bg: #0F172A;
+  --color-dark-bg: #0F1A4F;
   --color-light-bg: #F8FAFC;
 
   --color-text-primary: #1E293B;
@@ -90,7 +90,7 @@
 
   /* Gradient text */
   .text-gradient {
-    background: linear-gradient(135deg, #E85D2A, #1E3A5F);
+    background: linear-gradient(135deg, #2563EB, #1E40AF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -117,7 +117,7 @@
   }
   .card-hover:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(30, 58, 95, 0.15);
+    box-shadow: 0 20px 40px rgba(30, 64, 175, 0.15);
   }
 
   /* Pulse animation for WhatsApp */
@@ -199,7 +199,7 @@
 
 /* Focus styles */
 :focus-visible {
-  outline: 2px solid #E85D2A;
+  outline: 2px solid #2563EB;
   outline-offset: 2px;
   border-radius: 4px;
 }

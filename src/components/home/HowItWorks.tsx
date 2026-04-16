@@ -35,12 +35,12 @@ export function HowItWorks() {
       <div className="container-custom">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-3">
+          <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-3">
             Simple Process
           </p>
           <h2 id="how-it-works-heading" className="text-[#1E293B] mb-4">
             On the Road in{' '}
-            <span className="text-[#E85D2A]">3 Easy Steps</span>
+            <span className="text-[#2563EB]">3 Easy Steps</span>
           </h2>
           <p className="text-[#64748B] text-lg">
             We&apos;ve made getting your subscription car as simple as possible. No
@@ -52,7 +52,7 @@ export function HowItWorks() {
         <div className="relative">
           {/* Connector line — desktop */}
           <div
-            className="hidden lg:block absolute top-16 left-[calc(16.66%+2rem)] right-[calc(16.66%+2rem)] h-0.5 bg-gradient-to-r from-[#E85D2A]/30 via-[#E85D2A] to-[#E85D2A]/30"
+            className="hidden lg:block absolute top-16 left-[calc(16.66%+2rem)] right-[calc(16.66%+2rem)] h-0.5 bg-gradient-to-r from-[#2563EB]/30 via-[#2563EB] to-[#2563EB]/30"
             aria-hidden="true"
           />
 
@@ -66,11 +66,11 @@ export function HowItWorks() {
                 >
                   {/* Step icon + number */}
                   <div className="relative mb-6">
-                    <div className="w-32 h-32 rounded-full bg-white border-4 border-[#E85D2A]/20 flex items-center justify-center shadow-lg z-10 relative">
-                      <Icon className="h-10 w-10 text-[#1E3A5F]" aria-hidden="true" />
+                    <div className="w-32 h-32 rounded-full bg-white border-4 border-[#2563EB]/20 flex items-center justify-center shadow-lg z-10 relative">
+                      <Icon className="h-10 w-10 text-[#1E40AF]" aria-hidden="true" />
                     </div>
                     <span
-                      className="absolute -top-2 -right-2 w-9 h-9 rounded-full bg-[#E85D2A] text-white text-sm font-bold font-heading flex items-center justify-center shadow-md"
+                      className="absolute -top-2 -right-2 w-9 h-9 rounded-full bg-[#2563EB] text-white text-sm font-bold font-heading flex items-center justify-center shadow-md"
                       aria-hidden="true"
                     >
                       {index + 1}

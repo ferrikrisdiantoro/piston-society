@@ -105,7 +105,7 @@ export function ImageGallery({ images, carName }: ImageGalleryProps) {
                 className={cn(
                   'relative h-16 w-24 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all snap-start',
                   idx === current
-                    ? 'border-[#E85D2A] opacity-100'
+                    ? 'border-[#2563EB] opacity-100'
                     : 'border-transparent opacity-60 hover:opacity-100'
                 )}
                 aria-label={`Select image ${idx + 1}`}

@@ -188,7 +188,7 @@ export default function AdminFAQPage() {
                   </button>
                   <button
                     onClick={() => openEdit(faq)}
-                    className="p-2 rounded-lg text-[#64748B] hover:bg-[#F1F5F9] hover:text-[#1E3A5F] transition-colors"
+                    className="p-2 rounded-lg text-[#64748B] hover:bg-[#F1F5F9] hover:text-[#1E40AF] transition-colors"
                     aria-label="Edit FAQ"
                   >
                     <Pencil className="h-4 w-4" />
@@ -238,7 +238,7 @@ export default function AdminFAQPage() {
           <label className="flex items-center gap-3 cursor-pointer">
             <input
               type="checkbox"
-              className="h-4 w-4 rounded border-[#E2E8F0] text-[#E85D2A]"
+              className="h-4 w-4 rounded border-[#E2E8F0] text-[#2563EB]"
               checked={form.is_visible}
               onChange={(e) => setForm((p) => ({ ...p, is_visible: e.target.checked }))}
             />

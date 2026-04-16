@@ -28,15 +28,15 @@ export function Accordion({ items, defaultOpen, className }: AccordionProps) {
         <RadixAccordion.Item
           key={item.id}
           value={item.id}
-          className="bg-white border border-[#E2E8F0] rounded-xl overflow-hidden hover:border-[#1E3A5F]/30 transition-colors"
+          className="bg-white border border-[#E2E8F0] rounded-xl overflow-hidden hover:border-[#1E40AF]/30 transition-colors"
         >
           <RadixAccordion.Header>
             <RadixAccordion.Trigger className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left group">
-              <span className="text-[#1E293B] font-semibold text-base leading-snug group-data-[state=open]:text-[#1E3A5F]">
+              <span className="text-[#1E293B] font-semibold text-base leading-snug group-data-[state=open]:text-[#1E40AF]">
                 {item.question}
               </span>
               <ChevronDown
-                className="h-5 w-5 text-[#64748B] flex-shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180 group-data-[state=open]:text-[#E85D2A]"
+                className="h-5 w-5 text-[#64748B] flex-shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180 group-data-[state=open]:text-[#2563EB]"
                 aria-hidden="true"
               />
             </RadixAccordion.Trigger>

@@ -64,9 +64,9 @@ export default async function FAQPage() {
 
       <div className="min-h-screen bg-[#F8FAFC]">
         {/* Hero */}
-        <section className="bg-[#1E3A5F] pt-28 pb-16">
+        <section className="bg-[#1E40AF] pt-28 pb-16">
           <div className="container-custom">
-            <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-4">FAQ</p>
+            <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-4">FAQ</p>
             <h1 className="text-white font-heading font-bold text-4xl md:text-5xl mb-4">
               Frequently Asked Questions
             </h1>
@@ -82,7 +82,7 @@ export default async function FAQPage() {
             {byCategory.map((group) => (
               <div key={group.category} className="mb-12">
                 <h2 className="text-xl font-bold font-heading text-[#1E293B] mb-5 flex items-center gap-3">
-                  <span className="w-8 h-0.5 bg-[#E85D2A] inline-block" aria-hidden="true" />
+                  <span className="w-8 h-0.5 bg-[#2563EB] inline-block" aria-hidden="true" />
                   {group.category}
                 </h2>
                 <Accordion items={group.items} />
@@ -90,7 +90,7 @@ export default async function FAQPage() {
             ))}
 
             {/* Still have questions */}
-            <div className="mt-10 p-8 rounded-2xl bg-[#1E3A5F] text-center">
+            <div className="mt-10 p-8 rounded-2xl bg-[#1E40AF] text-center">
               <h3 className="text-white font-bold text-xl mb-2 font-heading">
                 Still have questions?
               </h3>

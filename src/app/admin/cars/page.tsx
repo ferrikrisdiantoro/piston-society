@@ -66,7 +66,7 @@ export default async function AdminCarsPage() {
                     </td>
                     <td className="px-5 py-4 text-[#64748B]">{car.body_type}</td>
                     <td className="px-5 py-4 text-[#64748B]">{car.location ?? '—'}</td>
-                    <td className="px-5 py-4 font-semibold text-[#E85D2A]">
+                    <td className="px-5 py-4 font-semibold text-[#2563EB]">
                       {formatCurrency(car.price_weekly)}
                     </td>
                     <td className="px-5 py-4">

@@ -58,7 +58,7 @@ export default function EnquiryDetailPage() {
   if (!enquiry) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="w-8 h-8 rounded-full border-2 border-[#E85D2A] border-t-transparent animate-spin" />
+        <div className="w-8 h-8 rounded-full border-2 border-[#2563EB] border-t-transparent animate-spin" />
       </div>
     )
   }
@@ -116,7 +116,7 @@ export default function EnquiryDetailPage() {
               <div>
                 <p className="text-xs text-[#94A3B8] font-semibold uppercase tracking-wide">{label}</p>
                 {href ? (
-                  <a href={href} className="font-semibold text-[#E85D2A] hover:underline text-sm">{value}</a>
+                  <a href={href} className="font-semibold text-[#2563EB] hover:underline text-sm">{value}</a>
                 ) : (
                   <p className="font-semibold text-[#1E293B] text-sm">{value}</p>
                 )}

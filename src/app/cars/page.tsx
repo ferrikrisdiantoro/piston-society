@@ -150,7 +150,7 @@ export default async function CarsPage({ searchParams }: CarsPageProps) {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Page Header */}
-      <div className="bg-[#1E3A5F] pt-28 pb-12">
+      <div className="bg-[#1E40AF] pt-28 pb-12">
         <div className="container-custom">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-white/60 text-sm mb-6" aria-label="Breadcrumb">
@@ -235,8 +235,8 @@ function SortLink({
       href={value ? `/cars?sort=${value}` : '/cars'}
       className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
         isActive
-          ? 'bg-[#1E3A5F] text-white'
-          : 'bg-white text-[#64748B] border border-[#E2E8F0] hover:border-[#1E3A5F] hover:text-[#1E3A5F]'
+          ? 'bg-[#1E40AF] text-white'
+          : 'bg-white text-[#64748B] border border-[#E2E8F0] hover:border-[#1E40AF] hover:text-[#1E40AF]'
       }`}
     >
       {label}

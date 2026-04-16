@@ -16,13 +16,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#E85D2A] text-white hover:bg-[#C04420] active:bg-[#A03818] shadow-sm hover:shadow-md',
+    'bg-[#2563EB] text-white hover:bg-[#1D4ED8] active:bg-[#1E3A8A] shadow-sm hover:shadow-md',
   secondary:
-    'bg-[#1E3A5F] text-white hover:bg-[#152A44] active:bg-[#0E1E30] shadow-sm hover:shadow-md',
+    'bg-[#1E40AF] text-white hover:bg-[#1E3A8A] active:bg-[#1e3270] shadow-sm hover:shadow-md',
   ghost:
-    'bg-transparent text-[#1E3A5F] hover:bg-[#1E3A5F]/10 active:bg-[#1E3A5F]/20',
+    'bg-transparent text-[#1E40AF] hover:bg-[#1E40AF]/10 active:bg-[#1E40AF]/20',
   outline:
-    'bg-transparent border-2 border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white',
+    'bg-transparent border-2 border-[#1E40AF] text-[#1E40AF] hover:bg-[#1E40AF] hover:text-white',
   danger:
     'bg-[#EF4444] text-white hover:bg-[#DC2626] active:bg-[#B91C1C] shadow-sm',
 }
@@ -53,7 +53,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || loading}
         className={cn(
           'inline-flex items-center justify-center gap-2 font-semibold font-heading transition-all duration-200',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2',
           'disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none',
           variantStyles[variant],
           sizeStyles[size],

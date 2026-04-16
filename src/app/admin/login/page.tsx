@@ -42,12 +42,12 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0F172A] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[#0F1A4F] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2.5 mb-3">
-            <div className="bg-[#E85D2A] rounded-xl p-3">
+            <div className="bg-[#2563EB] rounded-xl p-3">
               <Car className="h-6 w-6 text-white" aria-hidden="true" />
             </div>
           </div>

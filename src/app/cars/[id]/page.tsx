@@ -68,7 +68,7 @@ export default async function CarDetailPage({ params }: PageProps) {
 
       <div className="min-h-screen bg-[#F8FAFC]">
         {/* Header bar */}
-        <div className="bg-[#1E3A5F] pt-28 pb-10">
+        <div className="bg-[#1E40AF] pt-28 pb-10">
           <div className="container-custom">
             <nav
               className="flex items-center gap-2 text-white/60 text-sm mb-6 flex-wrap"
@@ -124,7 +124,7 @@ export default async function CarDetailPage({ params }: PageProps) {
                     From
                   </p>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold font-heading text-[#E85D2A]">
+                    <span className="text-4xl font-bold font-heading text-[#2563EB]">
                       {formatCurrency(car.price_weekly)}
                     </span>
                     <span className="text-[#64748B]">/week</span>

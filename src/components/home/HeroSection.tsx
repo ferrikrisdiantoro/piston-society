@@ -9,25 +9,26 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80"
-          alt="Premium car on the road"
+          src="/hero-bg.jpg"
+          alt="Premium sports cars"
           fill
           priority
           className="object-cover object-center"
           sizes="100vw"
+          quality={85}
         />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/70 to-[#0F172A]/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F1A4F]/90 via-[#0F1A4F]/70 to-[#0F1A4F]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0F1A4F]/60 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
       <div className="container-custom relative z-10 pt-28 pb-20">
         <div className="max-w-3xl">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 bg-[#E85D2A]/20 border border-[#E85D2A]/30 rounded-full px-4 py-1.5 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#E85D2A] animate-pulse" aria-hidden="true" />
-            <span className="text-[#E85D2A] text-sm font-semibold tracking-wide">
+          <div className="inline-flex items-center gap-2 bg-[#2563EB]/20 border border-[#2563EB]/30 rounded-full px-4 py-1.5 mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" aria-hidden="true" />
+            <span className="text-[#93C5FD] text-sm font-semibold tracking-wide">
               Australia&apos;s Premium Car Subscription
             </span>
           </div>
@@ -35,7 +36,7 @@ export function HeroSection() {
           {/* Headline */}
           <h1 className="text-white font-heading font-bold leading-tight mb-6">
             Drive Your Dream Car.{' '}
-            <span className="text-[#E85D2A]">No Lock-In.</span>
+            <span className="text-[#60A5FA]">No Lock-In.</span>
           </h1>
 
           {/* Subtitle */}
@@ -71,7 +72,7 @@ export function HeroSection() {
               </Button>
             </Link>
             <Link href="/how-it-works">
-              <Button variant="outline" size="lg" className="border-white/50 text-white hover:bg-white hover:text-[#1E3A5F]">
+              <Button variant="outline" size="lg" className="border-white/50 text-white hover:bg-white hover:text-[#1E40AF]">
                 How It Works
               </Button>
             </Link>

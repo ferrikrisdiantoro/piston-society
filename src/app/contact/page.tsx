@@ -14,9 +14,9 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Header */}
-      <section className="bg-[#1E3A5F] pt-28 pb-16">
+      <section className="bg-[#1E40AF] pt-28 pb-16">
         <div className="container-custom">
-          <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-4">Get in Touch</p>
+          <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-4">Get in Touch</p>
           <h1 className="text-white font-heading font-bold text-4xl md:text-5xl mb-4">
             Contact Us
           </h1>
@@ -50,16 +50,16 @@ export default function ContactPage() {
                 <h3 className="font-bold font-heading text-[#1E293B] text-lg mb-5">Contact Details</h3>
                 <div className="space-y-4">
                   <a
-                    href="tel:+61422663888"
+                    href="tel:+61423771678"
                     className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#F8FAFC] transition-colors group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-[#E85D2A]/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="h-5 w-5 text-[#E85D2A]" aria-hidden="true" />
+                    <div className="w-10 h-10 rounded-xl bg-[#2563EB]/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="h-5 w-5 text-[#2563EB]" aria-hidden="true" />
                     </div>
                     <div>
                       <p className="text-xs text-[#94A3B8] font-semibold uppercase tracking-wide">Phone</p>
-                      <p className="font-semibold text-[#1E293B] group-hover:text-[#E85D2A] transition-colors">
-                        +61 422 663 888
+                      <p className="font-semibold text-[#1E293B] group-hover:text-[#2563EB] transition-colors">
+                        +61 423 771 678
                       </p>
                     </div>
                   </a>
@@ -68,20 +68,20 @@ export default function ContactPage() {
                     href="mailto:info@pistonsociety.com.au"
                     className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#F8FAFC] transition-colors group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-[#1E3A5F]/10 flex items-center justify-center flex-shrink-0">
-                      <Mail className="h-5 w-5 text-[#1E3A5F]" aria-hidden="true" />
+                    <div className="w-10 h-10 rounded-xl bg-[#1E40AF]/10 flex items-center justify-center flex-shrink-0">
+                      <Mail className="h-5 w-5 text-[#1E40AF]" aria-hidden="true" />
                     </div>
                     <div>
                       <p className="text-xs text-[#94A3B8] font-semibold uppercase tracking-wide">Email</p>
-                      <p className="font-semibold text-[#1E293B] group-hover:text-[#E85D2A] transition-colors">
+                      <p className="font-semibold text-[#1E293B] group-hover:text-[#2563EB] transition-colors">
                         info@pistonsociety.com.au
                       </p>
                     </div>
                   </a>
 
                   <div className="flex items-center gap-4 p-4 rounded-xl">
-                    <div className="w-10 h-10 rounded-xl bg-[#14B8A6]/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="h-5 w-5 text-[#14B8A6]" aria-hidden="true" />
+                    <div className="w-10 h-10 rounded-xl bg-[#0EA5E9]/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-5 w-5 text-[#0EA5E9]" aria-hidden="true" />
                     </div>
                     <div>
                       <p className="text-xs text-[#94A3B8] font-semibold uppercase tracking-wide">Address</p>
@@ -94,7 +94,7 @@ export default function ContactPage() {
               {/* Business Hours */}
               <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0]">
                 <div className="flex items-center gap-2 mb-4">
-                  <Clock className="h-5 w-5 text-[#E85D2A]" aria-hidden="true" />
+                  <Clock className="h-5 w-5 text-[#2563EB]" aria-hidden="true" />
                   <h3 className="font-bold font-heading text-[#1E293B] text-lg">Business Hours</h3>
                 </div>
                 <div className="space-y-2.5 text-sm">
@@ -126,7 +126,7 @@ export default function ContactPage() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-[#E2E8F0] text-[#64748B] hover:border-[#E85D2A] hover:text-[#E85D2A] transition-all text-sm font-semibold"
+                      className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-[#E2E8F0] text-[#64748B] hover:border-[#2563EB] hover:text-[#2563EB] transition-all text-sm font-semibold"
                       aria-label={`Follow us on ${label}`}
                     >
                       <Icon className="h-4 w-4" />
@@ -137,7 +137,7 @@ export default function ContactPage() {
                     href="https://tiktok.com/@pistonsociety"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-[#E2E8F0] text-[#64748B] hover:border-[#E85D2A] hover:text-[#E85D2A] transition-all text-sm font-semibold"
+                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-[#E2E8F0] text-[#64748B] hover:border-[#2563EB] hover:text-[#2563EB] transition-all text-sm font-semibold"
                     aria-label="Follow us on TikTok"
                   >
                     <TikTokIcon className="h-4 w-4" />

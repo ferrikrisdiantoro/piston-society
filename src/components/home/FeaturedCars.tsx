@@ -35,15 +35,15 @@ export async function FeaturedCars() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
-            <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-3">
+            <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-3">
               Featured Vehicles
             </p>
             <h2 id="featured-cars-heading" className="text-[#1E293B]">
-              Our <span className="text-[#E85D2A]">Top Picks</span> for You
+              Our <span className="text-[#2563EB]">Top Picks</span> for You
             </h2>
           </div>
           <Link href="/cars" className="flex-shrink-0">
-            <Button variant="ghost" size="sm" className="text-[#1E3A5F] hover:bg-[#1E3A5F]/5">
+            <Button variant="ghost" size="sm" className="text-[#1E40AF] hover:bg-[#1E40AF]/5">
               View All Cars
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>

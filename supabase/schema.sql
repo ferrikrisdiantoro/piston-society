@@ -310,9 +310,9 @@ INSERT INTO faqs (question, answer, category, display_order, is_visible) VALUES
 
 -- ─── SITE SETTINGS SEED ──────────────────────────────────────────────────────
 INSERT INTO site_settings (key, value) VALUES
-('whatsapp_number', '+61422663888'),
+('whatsapp_number', '+61423771678'),
 ('business_email', 'info@pistonsociety.com.au'),
-('business_phone', '+61 422 663 888'),
+('business_phone', '+61 423 771 678'),
 ('business_address', 'Sydney, NSW, Australia'),
 ('instagram_url', 'https://instagram.com/pistonsociety'),
 ('facebook_url', 'https://facebook.com/pistonsociety'),

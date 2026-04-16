@@ -21,18 +21,18 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#0F172A] text-white" role="contentinfo">
+    <footer className="bg-[#0F1A4F] text-white" role="contentinfo">
       {/* Main Footer */}
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-4 group" aria-label="Piston Society">
-              <div className="bg-[#E85D2A] rounded-lg p-2">
+              <div className="bg-[#2563EB] rounded-lg p-2">
                 <Car className="h-5 w-5 text-white" aria-hidden="true" />
               </div>
               <span className="font-heading font-bold text-lg tracking-wide">
-                PISTON <span className="text-[#E85D2A]">SOCIETY</span>
+                PISTON <span className="text-[#2563EB]">SOCIETY</span>
               </span>
             </Link>
             <p className="text-[#94A3B8] text-sm leading-relaxed mb-6">
@@ -44,7 +44,7 @@ export function Footer() {
                 href="https://instagram.com/pistonsociety"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-white/5 text-[#94A3B8] hover:bg-[#E85D2A] hover:text-white transition-all duration-200"
+                className="p-2.5 rounded-lg bg-white/5 text-[#94A3B8] hover:bg-[#2563EB] hover:text-white transition-all duration-200"
                 aria-label="Follow us on Instagram"
               >
                 <InstagramIcon className="h-4 w-4" />
@@ -53,7 +53,7 @@ export function Footer() {
                 href="https://facebook.com/pistonsociety"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-white/5 text-[#94A3B8] hover:bg-[#E85D2A] hover:text-white transition-all duration-200"
+                className="p-2.5 rounded-lg bg-white/5 text-[#94A3B8] hover:bg-[#2563EB] hover:text-white transition-all duration-200"
                 aria-label="Follow us on Facebook"
               >
                 <FacebookIcon className="h-4 w-4" />
@@ -62,7 +62,7 @@ export function Footer() {
                 href="https://tiktok.com/@pistonsociety"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-white/5 text-[#94A3B8] hover:bg-[#E85D2A] hover:text-white transition-all duration-200"
+                className="p-2.5 rounded-lg bg-white/5 text-[#94A3B8] hover:bg-[#2563EB] hover:text-white transition-all duration-200"
                 aria-label="Follow us on TikTok"
               >
                 <TikTokIcon className="h-4 w-4" />
@@ -78,7 +78,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#94A3B8] text-sm hover:text-[#E85D2A] transition-colors duration-200"
+                    className="text-[#94A3B8] text-sm hover:text-[#2563EB] transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -93,7 +93,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-[#94A3B8] text-sm" role="list">
               {['Sydney, NSW', 'Melbourne, VIC', 'Brisbane, QLD', 'Perth, WA', 'Adelaide, SA'].map((city) => (
                 <li key={city} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E85D2A] flex-shrink-0" aria-hidden="true" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] flex-shrink-0" aria-hidden="true" />
                   {city}
                 </li>
               ))}
@@ -106,19 +106,19 @@ export function Footer() {
             <ul className="space-y-3" role="list">
               <li>
                 <a
-                  href="tel:+61422663888"
-                  className="flex items-start gap-3 text-[#94A3B8] text-sm hover:text-[#E85D2A] transition-colors group"
+                  href="tel:+61423771678"
+                  className="flex items-start gap-3 text-[#94A3B8] text-sm hover:text-[#2563EB] transition-colors group"
                 >
-                  <Phone className="h-4 w-4 mt-0.5 flex-shrink-0 group-hover:text-[#E85D2A]" aria-hidden="true" />
-                  +61 422 663 888
+                  <Phone className="h-4 w-4 mt-0.5 flex-shrink-0 group-hover:text-[#2563EB]" aria-hidden="true" />
+                  +61 423 771 678
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:info@pistonsociety.com.au"
-                  className="flex items-start gap-3 text-[#94A3B8] text-sm hover:text-[#E85D2A] transition-colors group"
+                  className="flex items-start gap-3 text-[#94A3B8] text-sm hover:text-[#2563EB] transition-colors group"
                 >
-                  <Mail className="h-4 w-4 mt-0.5 flex-shrink-0 group-hover:text-[#E85D2A]" aria-hidden="true" />
+                  <Mail className="h-4 w-4 mt-0.5 flex-shrink-0 group-hover:text-[#2563EB]" aria-hidden="true" />
                   info@pistonsociety.com.au
                 </a>
               </li>

@@ -8,9 +8,9 @@ import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
 
 const SETTINGS_FIELDS = [
-  { key: 'whatsapp_number', label: 'WhatsApp Number', placeholder: '+61422663888', type: 'text' },
+  { key: 'whatsapp_number', label: 'WhatsApp Number', placeholder: '+61423771678', type: 'text' },
   { key: 'business_email', label: 'Business Email', placeholder: 'info@pistonsociety.com.au', type: 'email' },
-  { key: 'business_phone', label: 'Business Phone', placeholder: '+61 422 663 888', type: 'text' },
+  { key: 'business_phone', label: 'Business Phone', placeholder: '+61 423 771 678', type: 'text' },
   { key: 'business_address', label: 'Business Address', placeholder: 'Sydney, NSW, Australia', type: 'text' },
   { key: 'instagram_url', label: 'Instagram URL', placeholder: 'https://instagram.com/pistonsociety', type: 'url' },
   { key: 'facebook_url', label: 'Facebook URL', placeholder: 'https://facebook.com/pistonsociety', type: 'url' },

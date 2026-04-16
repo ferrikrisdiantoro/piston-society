@@ -54,9 +54,9 @@ export default function HowItWorksPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero */}
-      <section className="bg-[#1E3A5F] pt-28 pb-16">
+      <section className="bg-[#1E40AF] pt-28 pb-16">
         <div className="container-custom">
-          <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-4">Simple Process</p>
+          <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-4">Simple Process</p>
           <h1 className="text-white font-heading font-bold text-4xl md:text-5xl mb-4 max-w-2xl">
             How Car Subscription Works
           </h1>
@@ -78,8 +78,8 @@ export default function HowItWorksPage() {
                   {/* Icon side */}
                   <div className="flex-shrink-0">
                     <div className="relative w-32 h-32 rounded-2xl bg-[#F8FAFC] border-2 border-[#E2E8F0] flex items-center justify-center">
-                      <Icon className="h-12 w-12 text-[#1E3A5F]" aria-hidden="true" />
-                      <span className="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-[#E85D2A] text-white text-sm font-bold font-heading flex items-center justify-center shadow">
+                      <Icon className="h-12 w-12 text-[#1E40AF]" aria-hidden="true" />
+                      <span className="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-[#2563EB] text-white text-sm font-bold font-heading flex items-center justify-center shadow">
                         {idx + 1}
                       </span>
                     </div>
@@ -111,7 +111,7 @@ export default function HowItWorksPage() {
       <section className="section-padding bg-[#F8FAFC]">
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-3">All-Inclusive</p>
+            <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-3">All-Inclusive</p>
             <h2 className="text-[#1E293B] mb-4">What&apos;s Included in Your Subscription</h2>
             <p className="text-[#64748B] text-lg">Every subscription comes fully loaded. Pay one weekly price — everything else is our responsibility.</p>
           </div>
@@ -133,7 +133,7 @@ export default function HowItWorksPage() {
       <section className="section-padding bg-white">
         <div className="container-custom max-w-2xl mx-auto">
           <div className="text-center mb-10">
-            <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-3">Requirements</p>
+            <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-3">Requirements</p>
             <h2 className="text-[#1E293B] mb-4">Eligibility Requirements</h2>
             <p className="text-[#64748B]">To subscribe with Piston Society, you&apos;ll need to meet the following requirements:</p>
           </div>
@@ -152,7 +152,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-[#0F172A]">
+      <section className="section-padding bg-[#0F1A4F]">
         <div className="container-custom text-center">
           <h2 className="text-white mb-4">Ready to Get Behind the Wheel?</h2>
           <p className="text-white/70 mb-8 text-lg">Browse our full fleet and find your perfect car today.</p>

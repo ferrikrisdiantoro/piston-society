@@ -9,10 +9,10 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  new: 'bg-[#14B8A6] text-white',
-  popular: 'bg-[#E85D2A] text-white',
+  new: 'bg-[#0EA5E9] text-white',
+  popular: 'bg-[#2563EB] text-white',
   'best-value': 'bg-[#22C55E] text-white',
-  featured: 'bg-[#1E3A5F] text-white',
+  featured: 'bg-[#1E40AF] text-white',
   default: 'bg-[#64748B] text-white',
 }
 

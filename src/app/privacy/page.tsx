@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      <div className="bg-[#1E3A5F] pt-28 pb-12">
+      <div className="bg-[#1E40AF] pt-28 pb-12">
         <div className="container-custom">
           <h1 className="text-white font-heading font-bold text-4xl mb-2">Privacy Policy</h1>
           <p className="text-white/60 text-sm">Last updated: April 2026</p>
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-[#1E293B] text-xl font-bold font-heading mb-3">7. Your Rights</h2>
-              <p>You have the right to access, correct, or request deletion of your personal information. To exercise these rights, contact us at <a href="mailto:info@pistonsociety.com.au" className="text-[#E85D2A] hover:underline">info@pistonsociety.com.au</a>. We will respond within 30 days.</p>
+              <p>You have the right to access, correct, or request deletion of your personal information. To exercise these rights, contact us at <a href="mailto:info@pistonsociety.com.au" className="text-[#2563EB] hover:underline">info@pistonsociety.com.au</a>. We will respond within 30 days.</p>
             </section>
 
             <section>
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-[#1E293B] text-xl font-bold font-heading mb-3">9. Contact Us</h2>
-              <p>For privacy enquiries or complaints, contact our Privacy Officer at <a href="mailto:info@pistonsociety.com.au" className="text-[#E85D2A] hover:underline">info@pistonsociety.com.au</a> or <a href="tel:+61422663888" className="text-[#E85D2A] hover:underline">+61 422 663 888</a>.</p>
+              <p>For privacy enquiries or complaints, contact our Privacy Officer at <a href="mailto:info@pistonsociety.com.au" className="text-[#2563EB] hover:underline">info@pistonsociety.com.au</a> or <a href="tel:+61423771678" className="text-[#2563EB] hover:underline">+61 423 771 678</a>.</p>
             </section>
           </div>
         </div>

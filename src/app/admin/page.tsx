@@ -118,7 +118,7 @@ export default async function AdminDashboard() {
           <h2 className="font-bold font-heading text-[#1E293B]">Recent Enquiries</h2>
           <Link
             href="/admin/enquiries"
-            className="text-sm text-[#E85D2A] font-semibold hover:underline"
+            className="text-sm text-[#2563EB] font-semibold hover:underline"
           >
             View all
           </Link>

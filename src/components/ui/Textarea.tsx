@@ -33,7 +33,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           className={cn(
             'w-full px-4 py-3 rounded-xl border bg-white text-[#1E293B] text-sm resize-y',
             'placeholder:text-[#94A3B8] transition-all duration-200',
-            'focus:outline-none focus:ring-2 focus:ring-[#E85D2A] focus:border-transparent',
+            'focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent',
             error
               ? 'border-[#EF4444] bg-[#FEF2F2]'
               : 'border-[#CBD5E1] hover:border-[#94A3B8]',

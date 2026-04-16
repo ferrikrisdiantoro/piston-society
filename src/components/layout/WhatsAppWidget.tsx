@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { X } from 'lucide-react'
 
-const WHATSAPP_NUMBER = '61422663888'
+const WHATSAPP_NUMBER = '61423771678'
 const DEFAULT_MESSAGE = "Hi! I'm interested in your car subscription service. Can you tell me more?"
 
 function WhatsAppIcon({ className }: { className?: string }) {

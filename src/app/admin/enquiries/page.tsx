@@ -53,8 +53,8 @@ export default async function EnquiriesPage({ searchParams }: PageProps) {
             href={s === 'all' ? '/admin/enquiries' : `/admin/enquiries?status=${s}`}
             className={`px-4 py-2 rounded-xl text-sm font-semibold capitalize transition-colors ${
               (params.status ?? 'all') === s
-                ? 'bg-[#1E3A5F] text-white'
-                : 'bg-white border border-[#E2E8F0] text-[#64748B] hover:border-[#1E3A5F]'
+                ? 'bg-[#1E40AF] text-white'
+                : 'bg-white border border-[#E2E8F0] text-[#64748B] hover:border-[#1E40AF]'
             }`}
           >
             {s === 'all' ? 'All' : s}

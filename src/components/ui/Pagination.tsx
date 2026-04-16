@@ -41,7 +41,7 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
         disabled={currentPage === 1}
         className={cn(
           'p-2 rounded-lg border border-[#CBD5E1] text-[#64748B] transition-colors',
-          'hover:bg-[#1E3A5F] hover:text-white hover:border-[#1E3A5F]',
+          'hover:bg-[#1E40AF] hover:text-white hover:border-[#1E40AF]',
           'disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#64748B] disabled:hover:border-[#CBD5E1]'
         )}
         aria-label="Previous page"
@@ -62,8 +62,8 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
             className={cn(
               'min-w-[2.5rem] h-10 px-3 rounded-lg border text-sm font-semibold transition-colors',
               currentPage === page
-                ? 'bg-[#1E3A5F] text-white border-[#1E3A5F]'
-                : 'border-[#CBD5E1] text-[#64748B] hover:bg-[#1E3A5F] hover:text-white hover:border-[#1E3A5F]'
+                ? 'bg-[#1E40AF] text-white border-[#1E40AF]'
+                : 'border-[#CBD5E1] text-[#64748B] hover:bg-[#1E40AF] hover:text-white hover:border-[#1E40AF]'
             )}
           >
             {page}
@@ -76,7 +76,7 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
         disabled={currentPage === totalPages}
         className={cn(
           'p-2 rounded-lg border border-[#CBD5E1] text-[#64748B] transition-colors',
-          'hover:bg-[#1E3A5F] hover:text-white hover:border-[#1E3A5F]',
+          'hover:bg-[#1E40AF] hover:text-white hover:border-[#1E40AF]',
           'disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#64748B] disabled:hover:border-[#CBD5E1]'
         )}
         aria-label="Next page"

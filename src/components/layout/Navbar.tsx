@@ -49,11 +49,11 @@ export function Navbar() {
             className="flex items-center gap-2.5 group"
             aria-label="Piston Society — Home"
           >
-            <div className="bg-[#E85D2A] rounded-lg p-2 group-hover:bg-[#C04420] transition-colors">
+            <div className="bg-[#2563EB] rounded-lg p-2 group-hover:bg-[#1D4ED8] transition-colors">
               <Car className="h-5 w-5 text-white" aria-hidden="true" />
             </div>
             <span className="text-white font-heading font-bold text-lg tracking-wide">
-              PISTON <span className="text-[#E85D2A]">SOCIETY</span>
+              PISTON <span className="text-[#2563EB]">SOCIETY</span>
             </span>
           </Link>
 
@@ -71,7 +71,7 @@ export function Navbar() {
                   className={cn(
                     'px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200',
                     isActive
-                      ? 'text-[#E85D2A] bg-white/10'
+                      ? 'text-[#2563EB] bg-white/10'
                       : 'text-white/80 hover:text-white hover:bg-white/10'
                   )}
                   aria-current={isActive ? 'page' : undefined}
@@ -134,7 +134,7 @@ export function Navbar() {
                   className={cn(
                     'px-4 py-3 rounded-xl text-base font-semibold transition-colors',
                     isActive
-                      ? 'text-[#E85D2A] bg-white/10'
+                      ? 'text-[#2563EB] bg-white/10'
                       : 'text-white/80 hover:text-white hover:bg-white/10'
                   )}
                   aria-current={isActive ? 'page' : undefined}

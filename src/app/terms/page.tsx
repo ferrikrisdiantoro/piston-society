@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      <div className="bg-[#1E3A5F] pt-28 pb-12">
+      <div className="bg-[#1E40AF] pt-28 pb-12">
         <div className="container-custom">
           <h1 className="text-white font-heading font-bold text-4xl mb-2">Terms &amp; Conditions</h1>
           <p className="text-white/60 text-sm">Last updated: April 2026</p>
@@ -73,7 +73,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="text-[#1E293B] text-xl font-bold font-heading mb-3">10. Contact</h2>
-              <p>For questions about these Terms, please contact us at <a href="mailto:info@pistonsociety.com.au" className="text-[#E85D2A] hover:underline">info@pistonsociety.com.au</a> or call <a href="tel:+61422663888" className="text-[#E85D2A] hover:underline">+61 422 663 888</a>.</p>
+              <p>For questions about these Terms, please contact us at <a href="mailto:info@pistonsociety.com.au" className="text-[#2563EB] hover:underline">info@pistonsociety.com.au</a> or call <a href="tel:+61423771678" className="text-[#2563EB] hover:underline">+61 423 771 678</a>.</p>
             </section>
           </div>
         </div>

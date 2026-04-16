@@ -103,18 +103,18 @@ export function TestimonialsClient({ testimonials }: TestimonialsClientProps) {
 
   return (
     <section
-      className="section-padding bg-[#0F172A]"
+      className="section-padding bg-[#0F1A4F]"
       aria-labelledby="testimonials-heading"
     >
       <div className="container-custom">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="text-[#E85D2A] font-semibold text-sm tracking-widest uppercase mb-3">
+          <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-3">
             Customer Reviews
           </p>
           <h2 id="testimonials-heading" className="text-white mb-4">
             What Our Customers{' '}
-            <span className="text-[#E85D2A]">Are Saying</span>
+            <span className="text-[#2563EB]">Are Saying</span>
           </h2>
           <div className="flex items-center justify-center gap-1 mb-2">
             {[...Array(5)].map((_, i) => (
@@ -173,7 +173,7 @@ export function TestimonialsClient({ testimonials }: TestimonialsClientProps) {
 
                   {/* Author */}
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E85D2A] to-[#1E3A5F] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2563EB] to-[#1E40AF] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                       {item.name.charAt(0)}
                     </div>
                     <div>
@@ -212,7 +212,7 @@ export function TestimonialsClient({ testimonials }: TestimonialsClientProps) {
                   className={cn(
                     'w-2 h-2 rounded-full transition-all duration-300',
                     i === current
-                      ? 'bg-[#E85D2A] w-6'
+                      ? 'bg-[#2563EB] w-6'
                       : 'bg-white/30 hover:bg-white/50'
                   )}
                 />

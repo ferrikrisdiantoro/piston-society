@@ -17,7 +17,7 @@ export function CarCard({ car, primaryImage }: CarCardProps) {
     `https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=80`
 
   return (
-    <article className="bg-white rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-xl hover:border-[#1E3A5F]/20 transition-all duration-300 group card-hover flex flex-col">
+    <article className="bg-white rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-xl hover:border-[#1E40AF]/20 transition-all duration-300 group card-hover flex flex-col">
       {/* Image */}
       <div className="relative h-52 overflow-hidden">
         <Image
@@ -46,7 +46,7 @@ export function CarCard({ car, primaryImage }: CarCardProps) {
       {/* Content */}
       <div className="p-5 flex flex-col flex-1">
         {/* Title */}
-        <h3 className="font-heading font-bold text-[#1E293B] text-lg leading-snug mb-1 group-hover:text-[#1E3A5F] transition-colors">
+        <h3 className="font-heading font-bold text-[#1E293B] text-lg leading-snug mb-1 group-hover:text-[#1E40AF] transition-colors">
           {car.year} {car.make} {car.model}
           {car.badge && (
             <span className="text-[#64748B] font-normal"> {car.badge}</span>
@@ -82,7 +82,7 @@ export function CarCard({ car, primaryImage }: CarCardProps) {
         {/* Price */}
         <div className="mt-auto">
           <div className="flex items-baseline gap-2 mb-1">
-            <span className="text-2xl font-bold font-heading text-[#E85D2A]">
+            <span className="text-2xl font-bold font-heading text-[#2563EB]">
               {formatCurrency(car.price_weekly)}
             </span>
             <span className="text-[#64748B] text-sm">/week</span>
