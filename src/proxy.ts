@@ -26,24 +26,25 @@ export async function proxy(request: NextRequest) {
   )
 
   // Refresh session
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  let user = null
+  try {
+    const { data } = await supabase.auth.getUser()
+    user = data.user
+  } catch {
+    // If auth check fails, allow the request through
+    return supabaseResponse
+  }
 
   // Protect /admin routes (except /admin/login)
   const { pathname } = request.nextUrl
 
   if (pathname.startsWith('/admin') && pathname !== '/admin/login' && !user) {
-    const loginUrl = request.nextUrl.clone()
-    loginUrl.pathname = '/admin/login'
-    return NextResponse.redirect(loginUrl)
+    return NextResponse.redirect(new URL('/admin/login', request.url))
   }
 
   // Redirect authenticated user away from login page
   if (pathname === '/admin/login' && user) {
-    const dashboardUrl = request.nextUrl.clone()
-    dashboardUrl.pathname = '/admin'
-    return NextResponse.redirect(dashboardUrl)
+    return NextResponse.redirect(new URL('/admin', request.url))
   }
 
   return supabaseResponse
