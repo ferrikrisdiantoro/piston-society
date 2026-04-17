@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import { Outfit, Inter } from 'next/font/google'
 import './globals.css'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
-import { WhatsAppWidget } from '@/components/layout/WhatsAppWidget'
 import { Toaster } from 'sonner'
 
 const outfit = Outfit({
@@ -85,10 +82,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#F8FAFC] text-[#1E293B]">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppWidget />
+        {children}
         <Toaster position="bottom-right" richColors />
       </body>
     </html>

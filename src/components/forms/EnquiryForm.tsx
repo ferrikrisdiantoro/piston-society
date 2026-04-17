@@ -88,12 +88,19 @@ export function EnquiryForm({
 
   const onSubmit = async (data: FormValues) => {
     try {
+      const selectedCar = cars.find((c) => c.id === data.car_interested)
+      const carNameSnapshot =
+        preselectedCarName ??
+        (selectedCar
+          ? `${selectedCar.year} ${selectedCar.make} ${selectedCar.model}`
+          : undefined)
+
       const response = await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...data,
-          car_name_snapshot: preselectedCarName ?? undefined,
+          car_name_snapshot: carNameSnapshot,
         }),
       })
 
