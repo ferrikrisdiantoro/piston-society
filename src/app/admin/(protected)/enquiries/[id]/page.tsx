@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { ChevronLeft, User, Phone, Mail, Car, Clock, Calendar, MessageSquare } from 'lucide-react'
+import { ChevronLeft, User, Phone, Mail, Car, Clock, Calendar, MessageSquare, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Select } from '@/components/ui/Select'
 import { createClient } from '@/lib/supabase/client'
@@ -23,6 +23,7 @@ export default function EnquiryDetailPage() {
   const [enquiry, setEnquiry] = useState<Enquiry | null>(null)
   const [status, setStatus] = useState('')
   const [loading, setLoading] = useState(false)
+  const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
     async function load() {
@@ -35,6 +36,21 @@ export default function EnquiryDetailPage() {
     }
     load()
   }, [id])
+
+  async function handleDelete() {
+    if (!confirm('Delete this enquiry? This cannot be undone.')) return
+    setDeleting(true)
+    try {
+      const supabase = createClient()
+      const { error } = await supabase.from('enquiries').delete().eq('id', id)
+      if (error) throw error
+      toast.success('Enquiry deleted')
+      router.push('/admin/enquiries')
+    } catch {
+      toast.error('Failed to delete enquiry')
+      setDeleting(false)
+    }
+  }
 
   async function handleStatusUpdate() {
     setLoading(true)
@@ -90,13 +106,12 @@ export default function EnquiryDetailPage() {
             onChange={(e) => setStatus(e.target.value)}
             className="min-w-[140px]"
           />
-          <Button
-            variant="primary"
-            size="sm"
-            onClick={handleStatusUpdate}
-            loading={loading}
-          >
+          <Button variant="primary" size="sm" onClick={handleStatusUpdate} loading={loading}>
             Update Status
+          </Button>
+          <Button variant="danger" size="sm" onClick={handleDelete} loading={deleting}>
+            <Trash2 className="h-4 w-4" aria-hidden="true" />
+            Delete
           </Button>
         </div>
       </div>
