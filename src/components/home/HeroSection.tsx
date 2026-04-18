@@ -2,20 +2,38 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { createClient } from '@/lib/supabase/server'
 
-export function HeroSection() {
+async function getHeroBg(): Promise<string> {
+  try {
+    const supabase = await createClient()
+    const { data } = await supabase
+      .from('site_settings')
+      .select('value')
+      .eq('key', 'hero_bg_url')
+      .single()
+    return data?.value || '/hero-bg.jpg'
+  } catch {
+    return '/hero-bg.jpg'
+  }
+}
+
+export async function HeroSection() {
+  const heroBg = await getHeroBg()
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden" aria-label="Hero">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-bg.jpg"
+          src={heroBg}
           alt="Premium sports cars"
           fill
           priority
           className="object-cover object-center"
           sizes="100vw"
           quality={85}
+          unoptimized={heroBg.startsWith('http')}
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0F1A4F]/90 via-[#0F1A4F]/70 to-[#0F1A4F]/40" />
@@ -49,11 +67,7 @@ export function HeroSection() {
 
           {/* Trust indicators */}
           <div className="flex flex-wrap items-center gap-4 mb-10">
-            {[
-              'No hidden fees',
-              'Cancel anytime',
-              '5-star service',
-            ].map((item) => (
+            {['No hidden fees', 'Cancel anytime', '5-star service'].map((item) => (
               <div key={item} className="flex items-center gap-2 text-white/70 text-sm">
                 <svg className="h-4 w-4 text-[#22C55E] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
