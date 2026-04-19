@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Car } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
@@ -16,7 +17,7 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ]
 
-export function Navbar() {
+export function Navbar({ logoUrl }: { logoUrl?: string }) {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
@@ -49,12 +50,20 @@ export function Navbar() {
             className="flex items-center gap-2.5 group"
             aria-label="Piston Society — Home"
           >
-            <div className="bg-[#2563EB] rounded-lg p-2 group-hover:bg-[#1D4ED8] transition-colors">
-              <Car className="h-5 w-5 text-white" aria-hidden="true" />
-            </div>
-            <span className="text-white font-heading font-bold text-lg tracking-wide">
-              PISTON <span className="text-[#2563EB]">SOCIETY</span>
-            </span>
+            {logoUrl ? (
+              <div className="relative h-10 w-36">
+                <Image src={logoUrl} alt="Piston Society" fill className="object-contain object-left" unoptimized />
+              </div>
+            ) : (
+              <>
+                <div className="bg-[#2563EB] rounded-lg p-2 group-hover:bg-[#1D4ED8] transition-colors">
+                  <Car className="h-5 w-5 text-white" aria-hidden="true" />
+                </div>
+                <span className="text-white font-heading font-bold text-lg tracking-wide">
+                  PISTON <span className="text-[#2563EB]">SOCIETY</span>
+                </span>
+              </>
+            )}
           </Link>
 
           {/* Desktop Nav */}

@@ -2,11 +2,29 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Search, ClipboardCheck, Car, CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { createClient } from '@/lib/supabase/server'
 
-export const metadata: Metadata = {
-  title: 'How It Works — Car Subscription Process',
-  description:
-    'Learn how Piston Society\'s car subscription works. Browse cars, submit an enquiry, and drive away — all within 48 hours. All-inclusive pricing, no lock-in contracts.',
+async function getPageContent() {
+  try {
+    const supabase = await createClient()
+    const { data } = await supabase
+      .from('page_contents')
+      .select('meta_title, meta_description, hero_title, hero_subtitle')
+      .eq('page_slug', 'how-it-works')
+      .single()
+    return data
+  } catch {
+    return null
+  }
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getPageContent()
+  return {
+    title: content?.meta_title ?? 'How It Works — Car Subscription Process',
+    description: content?.meta_description ??
+      'Learn how Piston Society\'s car subscription works. Browse cars, submit an enquiry, and drive away — all within 48 hours. All-inclusive pricing, no lock-in contracts.',
+  }
 }
 
 const steps = [
@@ -50,7 +68,11 @@ const eligibility = [
   'Mobile phone for contact purposes',
 ]
 
-export default function HowItWorksPage() {
+export default async function HowItWorksPage() {
+  const content = await getPageContent()
+  const heroTitle = content?.hero_title ?? 'How Car Subscription Works'
+  const heroSubtitle = content?.hero_subtitle ?? 'Getting your subscription car is easier than you think. Three simple steps from browsing to driving.'
+
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero */}
@@ -58,10 +80,10 @@ export default function HowItWorksPage() {
         <div className="container-custom">
           <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-4">Simple Process</p>
           <h1 className="text-white font-heading font-bold text-4xl md:text-5xl mb-4 max-w-2xl">
-            How Car Subscription Works
+            {heroTitle}
           </h1>
           <p className="text-white/70 text-lg max-w-2xl leading-relaxed">
-            Getting your subscription car is easier than you think. Three simple steps from browsing to driving.
+            {heroSubtitle}
           </p>
         </div>
       </section>

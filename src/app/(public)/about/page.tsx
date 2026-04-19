@@ -3,11 +3,29 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { MapPin, Target, Eye, CheckCircle2, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { createClient } from '@/lib/supabase/server'
 
-export const metadata: Metadata = {
-  title: 'About Us — Our Story & Mission',
-  description:
-    'Learn about Piston Society — Australia\'s premium car subscription service. Our mission is to give Australians the freedom to drive great cars without the financial commitment of ownership.',
+async function getPageContent() {
+  try {
+    const supabase = await createClient()
+    const { data } = await supabase
+      .from('page_contents')
+      .select('meta_title, meta_description, hero_title, hero_subtitle')
+      .eq('page_slug', 'about')
+      .single()
+    return data
+  } catch {
+    return null
+  }
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getPageContent()
+  return {
+    title: content?.meta_title ?? 'About Us — Our Story & Mission',
+    description: content?.meta_description ??
+      'Learn about Piston Society — Australia\'s premium car subscription service. Our mission is to give Australians the freedom to drive great cars without the financial commitment of ownership.',
+  }
 }
 
 const usps = [
@@ -21,7 +39,11 @@ const usps = [
 
 const serviceAreas = ['Sydney, NSW', 'Melbourne, VIC', 'Brisbane, QLD', 'Perth, WA', 'Adelaide, SA']
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const content = await getPageContent()
+  const heroTitle = content?.hero_title ?? 'About Piston Society'
+  const heroSubtitle = content?.hero_subtitle ?? 'We\'re on a mission to make premium car access simple, flexible, and stress-free for every Australian.'
+
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero */}
@@ -37,10 +59,10 @@ export default function AboutPage() {
         <div className="container-custom relative z-10">
           <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-4">About Us</p>
           <h1 className="text-white font-heading font-bold text-4xl md:text-5xl mb-4 max-w-2xl">
-            About Piston Society
+            {heroTitle}
           </h1>
           <p className="text-white/70 text-lg max-w-xl leading-relaxed">
-            We&apos;re on a mission to make premium car access simple, flexible, and stress-free for every Australian.
+            {heroSubtitle}
           </p>
         </div>
       </section>

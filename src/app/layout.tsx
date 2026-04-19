@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Outfit, Inter } from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'sonner'
+import { createClient } from '@/lib/supabase/server'
 
 const outfit = Outfit({
   variable: '--font-outfit',
@@ -15,7 +16,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-export const metadata: Metadata = {
+const baseMetadata = {
   title: {
     default: 'Piston Society | Car Subscription & Long-Term Rental Australia',
     template: '%s | Piston Society',
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   publisher: 'Piston Society',
   metadataBase: new URL('https://www.pistonsociety.com.au'),
   openGraph: {
-    type: 'website',
+    type: 'website' as const,
     locale: 'en_AU',
     url: 'https://www.pistonsociety.com.au',
     siteName: 'Piston Society',
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary_large_image' as const,
     title: 'Piston Society | Car Subscription Australia',
     description: 'Flexible car subscriptions in Australia. All-inclusive.',
     images: ['/og-image.jpg'],
@@ -64,11 +65,29 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      'max-video-preview': -1 as const,
+      'max-image-preview': 'large' as const,
+      'max-snippet': -1 as const,
     },
   },
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  try {
+    const supabase = await createClient()
+    const { data } = await supabase
+      .from('site_settings')
+      .select('value')
+      .eq('key', 'logo_url')
+      .single()
+    const logoUrl = data?.value
+    if (logoUrl) {
+      return { ...baseMetadata, icons: { icon: logoUrl, apple: logoUrl } }
+    }
+  } catch {
+    // fall through to default
+  }
+  return baseMetadata
 }
 
 export default function RootLayout({
