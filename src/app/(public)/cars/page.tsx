@@ -64,7 +64,7 @@ async function CarGrid({ searchParams }: { searchParams: Record<string, string |
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
       {cars.map((car) => {
-        const images: CarImage[] = (car as Car & { car_images: CarImage[] }).car_images ?? []
+        const images: CarImage[] = ((car as unknown) as Car & { car_images: CarImage[] }).car_images ?? []
         const primary = images.find((i) => i.is_primary) ?? images[0]
         return <CarCard key={car.id} car={car} primaryImage={primary} />
       })}
