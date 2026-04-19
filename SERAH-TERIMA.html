@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dokumen Serah Terima — Piston Society</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F8FAFC; color: #1E293B; line-height: 1.6; }
+
+    .cover {
+      background: linear-gradient(135deg, #0F1A4F 0%, #1E40AF 100%);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .cover .logo-box {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px; padding: 14px 24px; margin-bottom: 32px;
+    }
+    .cover .logo-box .dot { width: 12px; height: 12px; background: #2563EB; border-radius: 50%; }
+    .cover .logo-box span { font-size: 20px; font-weight: 800; letter-spacing: 2px; }
+    .cover .logo-box span em { color: #60A5FA; font-style: normal; }
+    .cover h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    .cover p { color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 6px; }
+    .cover .badge {
+      display: inline-block; margin-top: 20px;
+      background: rgba(34,197,94,0.2); border: 1px solid rgba(34,197,94,0.4);
+      color: #86EFAC; padding: 6px 16px; border-radius: 999px; font-size: 13px; font-weight: 600;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    .notice {
+      background: #FEF3C7; border: 1px solid #FCD34D; border-radius: 12px;
+      padding: 14px 18px; margin-bottom: 32px; font-size: 14px; color: #92400E;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .notice .icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    .section { margin-bottom: 32px; }
+    .section-title {
+      font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #2563EB; margin-bottom: 12px;
+      display: flex; align-items: center; gap-8px;
+    }
+    .section-title::after {
+      content: ''; flex: 1; height: 1px; background: #E2E8F0; margin-left: 12px;
+    }
+
+    .card {
+      background: white; border: 1px solid #E2E8F0; border-radius: 16px;
+      overflow: hidden; margin-bottom: 12px;
+    }
+    .card-header {
+      background: #F8FAFC; border-bottom: 1px solid #E2E8F0;
+      padding: 12px 20px; font-weight: 700; font-size: 15px; color: #1E293B;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card-header .icon { font-size: 18px; }
+    .card-body { padding: 0; }
+
+    table { width: 100%; border-collapse: collapse; }
+    table tr { border-bottom: 1px solid #F1F5F9; }
+    table tr:last-child { border-bottom: none; }
+    table td { padding: 13px 20px; font-size: 14px; vertical-align: top; }
+    table td:first-child { width: 38%; color: #64748B; font-weight: 500; }
+    table td:last-child { color: #1E293B; font-weight: 600; }
+
+    .credential {
+      font-family: 'Courier New', monospace;
+      background: #F1F5F9; border: 1px solid #E2E8F0;
+      padding: 3px 8px; border-radius: 6px; font-size: 13px; color: #0F172A;
+      display: inline-block;
+    }
+    .credential.secret {
+      background: #FEF2F2; border-color: #FECACA; color: #991B1B;
+    }
+
+    .url-link {
+      color: #2563EB; text-decoration: none; font-weight: 600;
+    }
+    .url-link:hover { text-decoration: underline; }
+
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 10px;
+    }
+    .feature-item {
+      background: white; border: 1px solid #E2E8F0; border-radius: 12px;
+      padding: 14px 16px; display: flex; align-items: flex-start; gap: 10px; font-size: 14px;
+    }
+    .feature-item .check { color: #22C55E; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .feature-item strong { display: block; color: #1E293B; font-weight: 600; margin-bottom: 2px; }
+    .feature-item span { color: #64748B; font-size: 12px; }
+
+    .cost-card {
+      background: white; border: 1px solid #E2E8F0; border-radius: 16px;
+      padding: 20px; display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 10px;
+    }
+    .cost-card .label { font-weight: 600; color: #1E293B; font-size: 15px; }
+    .cost-card .sub { color: #64748B; font-size: 13px; margin-top: 2px; }
+    .cost-card .price { font-size: 18px; font-weight: 800; color: #2563EB; }
+
+    .steps { counter-reset: step; }
+    .step {
+      background: white; border: 1px solid #E2E8F0; border-radius: 12px;
+      padding: 16px 20px; margin-bottom: 10px; display: flex; gap: 14px; align-items: flex-start;
+    }
+    .step-num {
+      width: 28px; height: 28px; background: #2563EB; color: white;
+      border-radius: 50%; display: flex; align-items: center; justify-center: center;
+      font-size: 13px; font-weight: 800; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-content strong { display: block; font-size: 14px; font-weight: 700; color: #1E293B; margin-bottom: 4px; }
+    .step-content p { font-size: 13px; color: #64748B; }
+    .step-content code {
+      font-family: monospace; background: #F1F5F9; padding: 2px 6px;
+      border-radius: 4px; font-size: 12px; color: #1E40AF;
+    }
+
+    .dev-card {
+      background: linear-gradient(135deg, #1E40AF, #0F1A4F);
+      border-radius: 16px; padding: 24px 28px; color: white;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+    }
+    .dev-card .name { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+    .dev-card .role { color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 12px; }
+    .dev-card .contact { display: flex; gap: 12px; flex-wrap: wrap; }
+    .dev-card .contact a {
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2);
+      color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px;
+      font-size: 14px; font-weight: 600;
+    }
+    .warranty-badge {
+      background: rgba(34,197,94,0.2); border: 1px solid rgba(34,197,94,0.3);
+      color: #86EFAC; padding: 10px 20px; border-radius: 12px; text-align: center;
+    }
+    .warranty-badge .days { font-size: 28px; font-weight: 900; display: block; }
+    .warranty-badge .label { font-size: 12px; opacity: 0.8; }
+
+    .footer {
+      text-align: center; padding: 32px; color: #94A3B8; font-size: 13px;
+      border-top: 1px solid #E2E8F0; margin-top: 40px;
+    }
+
+    @media print {
+      body { background: white; }
+      .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .dev-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="logo-box">
+    <div class="dot"></div>
+    <span>PISTON <em>SOCIETY</em></span>
+  </div>
+  <h1>Dokumen Serah Terima Proyek</h1>
+  <p>Website Car Subscription — pistonsociety.com.au</p>
+  <p>Tanggal Serah Terima: April 2026</p>
+  <div class="badge">✓ Website Live & Siap Digunakan</div>
+</div>
+
+<div class="container">
+
+  <!-- NOTICE -->
+  <div class="notice">
+    <div class="icon">⚠️</div>
+    <div>
+      <strong>Harap simpan dokumen ini dengan aman.</strong>
+      Dokumen ini berisi informasi kredensial rahasia. Jangan bagikan kepada pihak yang tidak berkepentingan.
+      Disarankan menyimpan salinan di tempat yang aman (password manager, Google Drive private, dsb).
+    </div>
+  </div>
+
+  <!-- 1. AKSES WEBSITE -->
+  <div class="section">
+    <div class="section-title">1 &nbsp; Akses Website</div>
+    <div class="card">
+      <div class="card-header"><span class="icon">🌐</span> Informasi Website</div>
+      <div class="card-body">
+        <table>
+          <tr>
+            <td>URL Website</td>
+            <td><a href="https://pistonsociety.com.au" class="url-link" target="_blank">https://pistonsociety.com.au</a></td>
+          </tr>
+          <tr>
+            <td>URL Admin Panel</td>
+            <td><a href="https://pistonsociety.com.au/admin" class="url-link" target="_blank">https://pistonsociety.com.au/admin</a></td>
+          </tr>
+          <tr>
+            <td>Email Login Admin</td>
+            <td><span class="credential">admin@pistonsociety.com.au</span></td>
+          </tr>
+          <tr>
+            <td>Password Admin</td>
+            <td><span class="credential secret">PistonAdmin2024!</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="notice" style="margin-bottom:0; margin-top:10px;">
+      <div class="icon">💡</div>
+      <div>Sangat disarankan untuk <strong>mengganti password admin</strong> setelah menerima dokumen ini. Masuk ke Admin Panel → klik foto profil → Change Password.</div>
+    </div>
+  </div>
+
+  <!-- 2. HOSTING & SERVER -->
+  <div class="section">
+    <div class="section-title">2 &nbsp; Hosting & Server (VPS)</div>
+    <div class="card">
+      <div class="card-header"><span class="icon">🖥️</span> Contabo VPS — Sydney, Australia</div>
+      <div class="card-body">
+        <table>
+          <tr>
+            <td>Provider</td>
+            <td>Contabo (<a href="https://contabo.com" class="url-link" target="_blank">contabo.com</a>)</td>
+          </tr>
+          <tr>
+            <td>Email Akun</td>
+            <td><span class="credential">societypiston@gmail.com</span></td>
+          </tr>
+          <tr>
+            <td>IP Server</td>
+            <td><span class="credential">109.123.227.128</span></td>
+          </tr>
+          <tr>
+            <td>SSH Username</td>
+            <td><span class="credential">root</span></td>
+          </tr>
+          <tr>
+            <td>SSH Password</td>
+            <td><span class="credential secret">pistonsociety123</span></td>
+          </tr>
+          <tr>
+            <td>Lokasi Server</td>
+            <td>Sydney, Australia</td>
+          </tr>
+          <tr>
+            <td>OS</td>
+            <td>Ubuntu 24.04 LTS</td>
+          </tr>
+          <tr>
+            <td>Direktori Aplikasi</td>
+            <td><span class="credential">/var/www/piston-society</span></td>
+          </tr>
+          <tr>
+            <td>Process Manager</td>
+            <td>PM2 (auto-restart jika server reboot)</td>
+          </tr>
+          <tr>
+            <td>Web Server</td>
+            <td>Nginx (reverse proxy ke port 3000)</td>
+          </tr>
+          <tr>
+            <td>SSL/HTTPS</td>
+            <td>✅ Let's Encrypt (auto-renew setiap 90 hari)</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. DOMAIN -->
+  <div class="section">
+    <div class="section-title">3 &nbsp; Domain</div>
+    <div class="card">
+      <div class="card-header"><span class="icon">🔗</span> Hostinger — Domain Management</div>
+      <div class="card-body">
+        <table>
+          <tr>
+            <td>Domain</td>
+            <td><span class="credential">pistonsociety.com.au</span></td>
+          </tr>
+          <tr>
+            <td>Registrar</td>
+            <td>Hostinger (<a href="https://hostinger.com" class="url-link" target="_blank">hostinger.com</a>)</td>
+          </tr>
+          <tr>
+            <td>Email Akun</td>
+            <td><span class="credential">societypiston@gmail.com</span></td>
+          </tr>
+          <tr>
+            <td>DNS A Record (@)</td>
+            <td><span class="credential">109.123.227.128</span></td>
+          </tr>
+          <tr>
+            <td>DNS CNAME (www)</td>
+            <td><span class="credential">pistonsociety.com.au</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. DATABASE -->
+  <div class="section">
+    <div class="section-title">4 &nbsp; Database & Backend</div>
+    <div class="card">
+      <div class="card-header"><span class="icon">🗄️</span> Supabase — Database & Storage</div>
+      <div class="card-body">
+        <table>
+          <tr>
+            <td>Provider</td>
+            <td>Supabase (<a href="https://supabase.com" class="url-link" target="_blank">supabase.com</a>)</td>
+          </tr>
+          <tr>
+            <td>Akses & Kredensial</td>
+            <td>Hubungi developer untuk informasi ini</td>
+          </tr>
+          <tr>
+            <td>Isi Database</td>
+            <td>Data mobil, enquiry, FAQ, testimonial, pengaturan situs</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>Foto hero background & logo tersimpan di Supabase Storage</td>
+          </tr>
+          <tr>
+            <td>Catatan</td>
+            <td>Supabase memiliki biaya bulanan. Hubungi developer untuk informasi paket dan tagihan.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. FITUR -->
+  <div class="section">
+    <div class="section-title">5 &nbsp; Fitur Website</div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Halaman Publik Lengkap</strong>
+          <span>Home, Cars, How It Works, About, FAQ, Contact, Privacy, Terms</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Admin Panel</strong>
+          <span>Login aman, dashboard dengan statistik & chart</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Manajemen Mobil</strong>
+          <span>Tambah, edit, hapus mobil beserta foto</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Sistem Enquiry</strong>
+          <span>Form enquiry, notifikasi, kelola status (New/Contacted/Closed)</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Manajemen FAQ</strong>
+          <span>Tambah & edit FAQ dari admin panel</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Testimonial</strong>
+          <span>Kelola testimonial pelanggan</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Page Content CMS</strong>
+          <span>Edit judul, subtitle, & meta SEO tiap halaman</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Upload Logo & Hero</strong>
+          <span>Ganti logo navbar & foto background homepage dari admin</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Pengaturan Bisnis</strong>
+          <span>No. WhatsApp, email, sosial media, Google Maps</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>WhatsApp Widget</strong>
+          <span>Tombol chat WhatsApp otomatis di semua halaman</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Mobile Responsive</strong>
+          <span>Tampilan optimal di semua ukuran layar</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>SEO Ready</strong>
+          <span>Meta tags, sitemap.xml, robots.txt, Open Graph</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>HTTPS / SSL</strong>
+          <span>Koneksi aman dengan sertifikat Let's Encrypt</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="check">✅</span>
+        <div>
+          <strong>Dashboard Charts</strong>
+          <span>Statistik enquiry, status, top mobil, durasi sewa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. PANDUAN ADMIN -->
+  <div class="section">
+    <div class="section-title">6 &nbsp; Panduan Penggunaan Admin Panel</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Login ke Admin</strong>
+          <p>Buka <code>https://pistonsociety.com.au/admin</code> → masukkan email & password admin.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Tambah / Edit Mobil</strong>
+          <p>Menu <strong>Cars</strong> → klik <strong>Add New Car</strong> atau klik tombol edit pada mobil yang ada. Upload foto, isi spesifikasi, dan set harga mingguan.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Kelola Enquiry</strong>
+          <p>Menu <strong>Enquiries</strong> → lihat semua permintaan masuk. Klik enquiry untuk detail, ubah status (New → Contacted → Closed), atau hapus jika perlu.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Edit Konten Halaman</strong>
+          <p>Menu <strong>Pages</strong> → pilih halaman (Home, About, How It Works, dll) → edit judul, subtitle, dan deskripsi SEO. Klik <strong>Save</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <strong>Ganti Logo atau Foto Background</strong>
+          <p>Menu <strong>Settings</strong> → bagian <strong>Site Logo</strong> atau <strong>Hero Background Image</strong> → klik Upload → pilih file gambar.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <strong>Update Info Kontak & Sosial Media</strong>
+          <p>Menu <strong>Settings</strong> → isi nomor WhatsApp, email bisnis, alamat, URL Instagram/Facebook/TikTok → klik <strong>Save Settings</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <strong>Tambah FAQ & Testimonial</strong>
+          <p>Menu <strong>FAQ</strong> atau <strong>Testimonials</strong> → tambah, edit, atau sembunyikan item sesuai kebutuhan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. BIAYA BULANAN -->
+  <div class="section">
+    <div class="section-title">7 &nbsp; Estimasi Biaya Bulanan</div>
+    <div class="cost-card">
+      <div>
+        <div class="label">🖥️ &nbsp; Contabo VPS (Sydney)</div>
+        <div class="sub">Server utama untuk menjalankan website</div>
+      </div>
+      <div class="price">~€6–14/bln</div>
+    </div>
+    <div class="cost-card">
+      <div>
+        <div class="label">🗄️ &nbsp; Supabase</div>
+        <div class="sub">Database & file storage — hubungi developer untuk detail paket</div>
+      </div>
+      <div class="price">Hubungi Dev</div>
+    </div>
+    <div class="cost-card">
+      <div>
+        <div class="label">🔗 &nbsp; Domain pistonsociety.com.au</div>
+        <div class="sub">Renewal tahunan via Hostinger</div>
+      </div>
+      <div class="price">~$18.98/thn</div>
+    </div>
+    <div class="notice" style="margin-bottom:0; margin-top: 10px;">
+      <div class="icon">📌</div>
+      <div>Pastikan tagihan Contabo dan Hostinger dibayar tepat waktu agar website tidak down. Aktifkan auto-renew jika memungkinkan.</div>
+    </div>
+  </div>
+
+  <!-- 8. DEVELOPER -->
+  <div class="section">
+    <div class="section-title">8 &nbsp; Kontak Developer</div>
+    <div class="dev-card">
+      <div>
+        <div class="name">Ferri Krisdiantoro</div>
+        <div class="role">Web Developer — Piston Society Project</div>
+        <div class="contact">
+          <a href="tel:+6285351168279">📞 085351168279</a>
+          <a href="https://wa.me/6285351168279" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="warranty-badge">
+        <span class="days">14</span>
+        <span class="label">Hari Garansi</span>
+      </div>
+    </div>
+    <div class="notice" style="margin-top: 12px; margin-bottom: 0;">
+      <div class="icon">🛡️</div>
+      <div>
+        <strong>Garansi 14 Hari</strong> — Jika ada bug atau masalah teknis yang berkaitan langsung dengan hasil pengerjaan, developer akan memperbaiki tanpa biaya tambahan dalam periode 14 hari sejak tanggal serah terima. Garansi tidak mencakup penambahan fitur baru atau perubahan desain.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Dokumen ini dibuat khusus untuk proyek Piston Society &nbsp;|&nbsp; Serah Terima April 2026<br/>
+  Developer: Ferri Krisdiantoro &nbsp;·&nbsp; 085351168279
+</div>
+
+</body>
+</html>

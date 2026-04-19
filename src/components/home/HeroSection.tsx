@@ -53,7 +53,7 @@ export async function HeroSection() {
 
           {/* Headline */}
           <h1 className="text-white font-heading font-bold leading-tight mb-6">
-            Drive Your Dream Car.{' '}
+            Drive Your Dream Car.<br />
             <span className="text-[#60A5FA]">No Lock-In.</span>
           </h1>
 
