@@ -38,7 +38,7 @@ export default async function CarDetailPage({ params }: PageProps) {
 
   if (!data) notFound()
 
-  const car = data as Car & { car_images: CarImage[] }
+  const car = data as unknown as Car & { car_images: CarImage[] }
   const images = (car.car_images ?? []).sort((a, b) => a.display_order - b.display_order)
   const primaryImage = images.find((i) => i.is_primary) ?? images[0]
   const otherImages = images.filter((i) => i !== primaryImage).slice(0, 4)
