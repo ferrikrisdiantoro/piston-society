@@ -79,7 +79,7 @@ export function generateCarJsonLd(car: Car, primaryImageUrl?: string) {
       name: car.make,
     },
     model: car.model,
-    modelDate: car.year.toString(),
+    modelDate: car.year?.toString(),
     bodyType: car.body_type,
     fuelType: car.fuel_type,
     vehicleTransmission: car.transmission,

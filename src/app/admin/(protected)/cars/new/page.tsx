@@ -17,7 +17,7 @@ import { createClient } from '@/lib/supabase/client'
 const carSchema = z.object({
   make: z.string().min(1, 'Required'),
   model: z.string().min(1, 'Required'),
-  year: z.number().min(2000).max(2030),
+  year: z.number().min(2000).max(2030).optional().nullable(),
   badge: z.string().optional(),
   body_type: z.string().min(1, 'Required'),
   transmission: z.string().min(1, 'Required'),
@@ -76,6 +76,7 @@ export default function NewCarPage() {
       const supabase = createClient()
       const { error } = await supabase.from('cars').insert({
         ...data,
+        year: data.year ?? null,
         badge: data.badge || null,
         engine: data.engine || null,
         drivetrain: data.drivetrain || null,
@@ -115,7 +116,7 @@ export default function NewCarPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <Input label="Make" placeholder="Toyota" required {...register('make')} error={errors.make?.message} />
               <Input label="Model" placeholder="Corolla" required {...register('model')} error={errors.model?.message} />
-              <Input label="Year" type="number" placeholder="2024" required {...register('year', { valueAsNumber: true })} error={errors.year?.message} />
+              <Input label="Year" type="number" placeholder="2024" {...register('year', { valueAsNumber: true, setValueAs: v => v === '' || isNaN(v) ? null : Number(v) })} error={errors.year?.message} />
               <Input label="Badge / Variant" placeholder="Ascent Sport" {...register('badge')} />
               <Select label="Body Type" required options={BODY_TYPES} placeholder="Select..." {...register('body_type')} error={errors.body_type?.message} />
               <Select label="Transmission" required options={TRANSMISSIONS} placeholder="Select..." {...register('transmission')} error={errors.transmission?.message} />

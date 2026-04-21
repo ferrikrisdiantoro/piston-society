@@ -30,7 +30,7 @@ export type Database = {
           id: string
           make: string
           model: string
-          year: number
+          year: number | null
           badge: string | null
           body_type: string
           transmission: string
@@ -56,7 +56,7 @@ export type Database = {
           id?: string
           make: string
           model: string
-          year: number
+          year?: number | null
           badge?: string | null
           body_type: string
           transmission: string
@@ -82,7 +82,7 @@ export type Database = {
           id?: string
           make?: string
           model?: string
-          year?: number
+          year?: number | null
           badge?: string | null
           body_type?: string
           transmission?: string

@@ -28,7 +28,7 @@ export function CarCard({ car, primaryImage }: CarCardProps) {
       <div className="relative h-52 overflow-hidden bg-[#F1F5F9]">
         <Image
           src={imageUrl}
-          alt={`${car.year} ${car.make} ${car.model}`}
+          alt={`${car.year ? `${car.year} ` : ''}${car.make} ${car.model}`}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -54,7 +54,7 @@ export function CarCard({ car, primaryImage }: CarCardProps) {
       <div className="p-5 flex flex-col flex-1">
         {/* Title */}
         <h3 className="font-heading font-bold text-[#1E293B] text-lg leading-snug mb-1 group-hover:text-[#1E40AF] transition-colors">
-          {car.year} {car.make} {car.model}
+          {car.year ? `${car.year} ` : ''}{car.make} {car.model}
           {car.badge && (
             <span className="text-[#64748B] font-normal"> {car.badge}</span>
           )}

@@ -20,9 +20,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const supabase = await createClient()
   const { data: car } = await supabase.from('cars').select('make, model, year').eq('id', id).single()
   if (!car) return { title: 'Car Not Found' }
+  const carName = `${car.year ? `${car.year} ` : ''}${car.make} ${car.model}`
   return {
-    title: `${car.year} ${car.make} ${car.model} — Subscription`,
-    description: `Subscribe to a ${car.year} ${car.make} ${car.model}. All-inclusive weekly pricing — insurance, registration, and servicing included.`,
+    title: `${carName} — Subscription`,
+    description: `Subscribe to a ${carName}. All-inclusive weekly pricing — insurance, registration, and servicing included.`,
   }
 }
 
@@ -69,7 +70,7 @@ export default async function CarDetailPage({ params }: PageProps) {
                 </div>
               )}
               <h1 className="text-3xl font-bold font-heading text-[#1E293B]">
-                {car.year} {car.make} {car.model}
+                {car.year ? `${car.year} ` : ''}{car.make} {car.model}
                 {car.badge && <span className="text-[#64748B] font-normal"> {car.badge}</span>}
               </h1>
               {car.location && (
@@ -84,7 +85,7 @@ export default async function CarDetailPage({ params }: PageProps) {
             <div className="relative h-72 sm:h-96 rounded-2xl overflow-hidden bg-[#F1F5F9]">
               <Image
                 src={primaryImage?.image_url ?? FALLBACK}
-                alt={`${car.year} ${car.make} ${car.model}`}
+                alt={`${car.year ? `${car.year} ` : ''}${car.make} ${car.model}`}
                 fill
                 priority
                 className="object-cover"
@@ -177,7 +178,7 @@ export default async function CarDetailPage({ params }: PageProps) {
               {car.is_available ? (
                 <EnquiryForm
                   preselectedCarId={car.id}
-                  preselectedCarName={`${car.year} ${car.make} ${car.model}${car.badge ? ` ${car.badge}` : ''}`}
+                  preselectedCarName={`${car.year ? `${car.year} ` : ''}${car.make} ${car.model}${car.badge ? ` ${car.badge}` : ''}`}
                 />
               ) : (
                 <div className="text-center py-6">
