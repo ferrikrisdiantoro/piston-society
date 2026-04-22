@@ -6,7 +6,6 @@ import { X, SlidersHorizontal } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils/cn'
 
-const MAKES = ['Toyota', 'Mazda', 'Hyundai', 'Kia', 'BMW', 'Mercedes-Benz', 'Volkswagen', 'Ford', 'Tesla', 'Mitsubishi', 'Honda']
 const BODY_TYPES = ['Sedan', 'SUV', 'Hatchback', 'Ute', 'Van']
 const TRANSMISSIONS = ['Automatic', 'Manual']
 const FUEL_TYPES = ['Petrol', 'Diesel', 'Hybrid', 'Electric']
@@ -38,9 +37,10 @@ function FilterCheckbox({ label, paramKey, value, checked, onChange }: FilterChe
 
 interface CarFiltersProps {
   className?: string
+  availableMakes?: string[]
 }
 
-export function CarFilters({ className }: CarFiltersProps) {
+export function CarFilters({ className, availableMakes = [] }: CarFiltersProps) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -134,7 +134,7 @@ export function CarFilters({ className }: CarFiltersProps) {
         <div>
           <p className="text-xs font-bold text-[#94A3B8] uppercase tracking-wider mb-3">Make</p>
           <div className="space-y-2.5">
-            {MAKES.map((make) => (
+            {availableMakes.map((make) => (
               <FilterCheckbox
                 key={make}
                 label={make}

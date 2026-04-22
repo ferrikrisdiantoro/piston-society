@@ -74,6 +74,12 @@ async function CarGrid({ searchParams }: { searchParams: Record<string, string |
 
 export default async function CarsPage({ searchParams }: PageProps) {
   const params = await searchParams
+  const supabase = await createClient()
+  const { data: makesData } = await supabase
+    .from('cars')
+    .select('make')
+    .eq('is_available', true)
+  const availableMakes = [...new Set((makesData ?? []).map((r) => r.make))].sort()
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
@@ -96,7 +102,7 @@ export default async function CarsPage({ searchParams }: PageProps) {
           {/* Filters sidebar */}
           <div className="lg:w-64 flex-shrink-0">
             <Suspense>
-              <CarFilters className="sticky top-24" />
+              <CarFilters className="sticky top-24" availableMakes={availableMakes} />
             </Suspense>
           </div>
 
