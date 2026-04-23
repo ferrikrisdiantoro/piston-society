@@ -17,7 +17,7 @@ import { createClient } from '@/lib/supabase/client'
 const carSchema = z.object({
   make: z.string().min(1, 'Required'),
   model: z.string().min(1, 'Required'),
-  year: z.number().min(2000).max(2030).optional().nullable(),
+  year: z.number().min(2000).max(2030).nullable().optional(),
   badge: z.string().optional(),
   body_type: z.string().min(1, 'Required'),
   transmission: z.string().min(1, 'Required'),
@@ -181,7 +181,7 @@ export default function EditCarPage({ params }: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <Input label="Make" placeholder="Toyota" required {...register('make')} error={errors.make?.message} />
               <Input label="Model" placeholder="Corolla" required {...register('model')} error={errors.model?.message} />
-              <Input label="Year" type="number" placeholder="2024" {...register('year', { valueAsNumber: true, setValueAs: v => v === '' || isNaN(v) ? null : Number(v) })} error={errors.year?.message} />
+              <Input label="Year" type="number" placeholder="2024" {...register('year', { setValueAs: v => v === '' || v === null || v === undefined ? null : Number(v) })} error={errors.year?.message} />
               <Input label="Badge / Variant" placeholder="Ascent Sport" {...register('badge')} />
               <Select label="Body Type" required options={BODY_TYPES} placeholder="Select..." {...register('body_type')} error={errors.body_type?.message} />
               <Select label="Transmission" required options={TRANSMISSIONS} placeholder="Select..." {...register('transmission')} error={errors.transmission?.message} />
