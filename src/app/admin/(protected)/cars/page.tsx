@@ -58,7 +58,7 @@ export default async function AdminCarsPage() {
                   <tr key={car.id} className="hover:bg-[#F8FAFC] transition-colors">
                     <td className="px-5 py-4">
                       <p className="font-semibold text-[#1E293B]">
-                        {car.year} {car.make} {car.model}
+                        {car.year ? `${car.year} ` : ''}{car.make} {car.model}
                       </p>
                       {car.badge && (
                         <p className="text-xs text-[#94A3B8]">{car.badge}</p>

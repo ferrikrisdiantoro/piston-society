@@ -92,7 +92,7 @@ export function EnquiryForm({
       const carNameSnapshot =
         preselectedCarName ??
         (selectedCar
-          ? `${selectedCar.year} ${selectedCar.make} ${selectedCar.model}`
+          ? `${selectedCar.year ? `${selectedCar.year} ` : ''}${selectedCar.make} ${selectedCar.model}`
           : undefined)
 
       const response = await fetch('/api/enquiry', {
@@ -140,7 +140,7 @@ export function EnquiryForm({
     { value: '', label: 'Select a car (optional)' },
     ...cars.map((c) => ({
       value: c.id,
-      label: `${c.year} ${c.make} ${c.model}`,
+      label: `${c.year ? `${c.year} ` : ''}${c.make} ${c.model}`,
     })),
   ]
 

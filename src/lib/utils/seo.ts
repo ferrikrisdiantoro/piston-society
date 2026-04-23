@@ -5,8 +5,9 @@ const BASE_URL = 'https://www.pistonsociety.com.au'
 const SITE_NAME = 'Piston Society'
 
 export function generateCarMetadata(car: Car) {
-  const title = `${car.year} ${car.make} ${car.model}${car.badge ? ` ${car.badge}` : ''} — From ${formatCurrency(car.price_weekly)}/week`
-  const description = `Rent the ${car.year} ${car.make} ${car.model} from just ${formatCurrency(car.price_weekly)}/week. All-inclusive: registration, insurance, CTP, servicing & roadside assist. Available in ${car.location ?? 'Australia'}.`
+  const yearPrefix = car.year ? `${car.year} ` : ''
+  const title = `${yearPrefix}${car.make} ${car.model}${car.badge ? ` ${car.badge}` : ''} — From ${formatCurrency(car.price_weekly)}/week`
+  const description = `Rent the ${yearPrefix}${car.make} ${car.model} from just ${formatCurrency(car.price_weekly)}/week. All-inclusive: registration, insurance, CTP, servicing & roadside assist. Available in ${car.location ?? 'Australia'}.`
 
   return {
     title,
@@ -73,7 +74,7 @@ export function generateCarJsonLd(car: Car, primaryImageUrl?: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Car',
-    name: `${car.year} ${car.make} ${car.model}${car.badge ? ` ${car.badge}` : ''}`,
+    name: `${car.year ? `${car.year} ` : ''}${car.make} ${car.model}${car.badge ? ` ${car.badge}` : ''}`,
     brand: {
       '@type': 'Brand',
       name: car.make,
