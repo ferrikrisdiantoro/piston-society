@@ -74,7 +74,7 @@ export default function NewCarPage() {
   const onSubmit = async (data: CarFormValues) => {
     try {
       const supabase = createClient()
-      const { error } = await supabase.from('cars').insert({
+      const { data: inserted, error } = await supabase.from('cars').insert({
         ...data,
         year: data.year ?? null,
         badge: data.badge || null,
@@ -86,11 +86,11 @@ export default function NewCarPage() {
         description: data.description || null,
         features_included: features,
         price_monthly: data.price_weekly * 4.33,
-      })
+      }).select('id').single()
 
       if (error) throw error
-      toast.success('Car added successfully!')
-      router.push('/admin/cars')
+      toast.success('Car added! Now add some images.')
+      router.push(`/admin/cars/${inserted.id}/edit`)
     } catch {
       toast.error('Failed to add car. Please try again.')
     }

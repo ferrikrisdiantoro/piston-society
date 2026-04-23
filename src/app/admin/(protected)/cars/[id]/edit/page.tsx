@@ -13,6 +13,7 @@ import { Input } from '@/components/ui/Input'
 import { Select } from '@/components/ui/Select'
 import { Textarea } from '@/components/ui/Textarea'
 import { createClient } from '@/lib/supabase/client'
+import { CarImageManager } from '@/components/admin/CarImageManager'
 
 const carSchema = z.object({
   make: z.string().min(1, 'Required'),
@@ -203,6 +204,9 @@ export default function EditCarPage({ params }: PageProps) {
               <Input label="Minimum Term (weeks)" type="number" placeholder="1" {...register('minimum_term_weeks', { valueAsNumber: true })} />
             </div>
           </div>
+
+          {/* Images */}
+          <CarImageManager carId={id} />
 
           {/* Features */}
           <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0]">
