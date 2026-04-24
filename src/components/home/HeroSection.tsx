@@ -18,7 +18,12 @@ async function getHeroBg(): Promise<string> {
   }
 }
 
-export async function HeroSection() {
+interface HeroSectionProps {
+  heroTitle?: string | null
+  heroSubtitle?: string | null
+}
+
+export async function HeroSection({ heroTitle, heroSubtitle }: HeroSectionProps = {}) {
   const heroBg = await getHeroBg()
 
   return (
@@ -53,16 +58,26 @@ export async function HeroSection() {
 
           {/* Headline */}
           <h1 className="text-white font-heading font-bold leading-tight mb-6">
-            Drive Your Dream Car.<br />
-            <span className="text-[#60A5FA]">No Lock-In.</span>
+            {heroTitle ? (
+              heroTitle
+            ) : (
+              <>
+                Drive Your Dream Car.<br />
+                <span className="text-[#60A5FA]">No Lock-In.</span>
+              </>
+            )}
           </h1>
 
           {/* Subtitle */}
           <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl">
-            Flexible car subscriptions in Australia. All-inclusive — insurance,
-            registration, servicing &amp; roadside assist included. Start driving
-            from as little as{' '}
-            <span className="text-white font-semibold">$179/week.</span>
+            {heroSubtitle ?? (
+              <>
+                Flexible car subscriptions in Australia. All-inclusive — insurance,
+                registration, servicing &amp; roadside assist included. Start driving
+                from as little as{' '}
+                <span className="text-white font-semibold">$179/week.</span>
+              </>
+            )}
           </p>
 
           {/* Trust indicators */}

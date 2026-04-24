@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { X } from 'lucide-react'
 
-const WHATSAPP_NUMBER = '61423771678'
+const DEFAULT_WHATSAPP_NUMBER = '61423771678'
 const DEFAULT_MESSAGE = "Hi! I'm interested in your car subscription service. Can you tell me more?"
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -14,12 +14,17 @@ function WhatsAppIcon({ className }: { className?: string }) {
   )
 }
 
-export function WhatsAppWidget() {
+interface WhatsAppWidgetProps {
+  whatsappNumber?: string
+}
+
+export function WhatsAppWidget({ whatsappNumber }: WhatsAppWidgetProps = {}) {
   const [dismissed, setDismissed] = useState(false)
 
   if (dismissed) return null
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`
+  const digits = (whatsappNumber || DEFAULT_WHATSAPP_NUMBER).replace(/\D/g, '')
+  const whatsappUrl = `https://wa.me/${digits}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`
 
   return (
     <div

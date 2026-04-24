@@ -2,15 +2,30 @@ import type { Metadata } from 'next'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { InstagramIcon, FacebookIcon, TikTokIcon } from '@/components/ui/SocialIcons'
 import { EnquiryForm } from '@/components/forms/EnquiryForm'
+import { getSiteSettings, getPageContent, DEFAULT_SETTINGS, telHref } from '@/lib/utils/settings'
 
-export const metadata: Metadata = {
-  title: 'Contact Us — Submit an Enquiry',
-  description:
-    'Get in touch with Piston Society. Submit a car subscription enquiry, call us, or visit us. We respond within 24 hours.',
+const DEFAULT_META_TITLE = 'Contact Us — Submit an Enquiry'
+const DEFAULT_META_DESC = 'Get in touch with Piston Society. Submit a car subscription enquiry, call us, or visit us. We respond within 24 hours.'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getPageContent('contact')
+  return {
+    title: content?.meta_title || DEFAULT_META_TITLE,
+    description: content?.meta_description || DEFAULT_META_DESC,
+  }
 }
 
+export default async function ContactPage() {
+  const [settings, content] = await Promise.all([getSiteSettings(), getPageContent('contact')])
+  const heroTitle = content?.hero_title || 'Contact Us'
+  const heroSubtitle = content?.hero_subtitle || 'Ready to start your subscription? Submit an enquiry and our team will get back to you within 24 hours.'
+  const phone = settings.business_phone || DEFAULT_SETTINGS.business_phone
+  const email = settings.business_email || DEFAULT_SETTINGS.business_email
+  const address = settings.business_address || DEFAULT_SETTINGS.business_address
+  const instagram = settings.instagram_url || DEFAULT_SETTINGS.instagram_url
+  const facebook = settings.facebook_url || DEFAULT_SETTINGS.facebook_url
+  const tiktok = settings.tiktok_url || DEFAULT_SETTINGS.tiktok_url
 
-export default function ContactPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Header */}
@@ -18,10 +33,10 @@ export default function ContactPage() {
         <div className="container-custom">
           <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-4">Get in Touch</p>
           <h1 className="text-white font-heading font-bold text-4xl md:text-5xl mb-4">
-            Contact Us
+            {heroTitle}
           </h1>
           <p className="text-white/70 text-lg max-w-xl">
-            Ready to start your subscription? Submit an enquiry and our team will get back to you within 24 hours.
+            {heroSubtitle}
           </p>
         </div>
       </section>
@@ -50,7 +65,7 @@ export default function ContactPage() {
                 <h3 className="font-bold font-heading text-[#1E293B] text-lg mb-5">Contact Details</h3>
                 <div className="space-y-4">
                   <a
-                    href="tel:+61423771678"
+                    href={telHref(phone)}
                     className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#F8FAFC] transition-colors group"
                   >
                     <div className="w-10 h-10 rounded-xl bg-[#2563EB]/10 flex items-center justify-center flex-shrink-0">
@@ -59,13 +74,13 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs text-[#94A3B8] font-semibold uppercase tracking-wide">Phone</p>
                       <p className="font-semibold text-[#1E293B] group-hover:text-[#2563EB] transition-colors">
-                        +61 423 771 678
+                        {phone}
                       </p>
                     </div>
                   </a>
 
                   <a
-                    href="mailto:info@pistonsociety.com.au"
+                    href={`mailto:${email}`}
                     className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#F8FAFC] transition-colors group"
                   >
                     <div className="w-10 h-10 rounded-xl bg-[#1E40AF]/10 flex items-center justify-center flex-shrink-0">
@@ -74,7 +89,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs text-[#94A3B8] font-semibold uppercase tracking-wide">Email</p>
                       <p className="font-semibold text-[#1E293B] group-hover:text-[#2563EB] transition-colors">
-                        info@pistonsociety.com.au
+                        {email}
                       </p>
                     </div>
                   </a>
@@ -85,7 +100,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-xs text-[#94A3B8] font-semibold uppercase tracking-wide">Address</p>
-                      <p className="font-semibold text-[#1E293B]">Sydney, NSW, Australia</p>
+                      <p className="font-semibold text-[#1E293B]">{address}</p>
                     </div>
                   </div>
                 </div>
@@ -118,8 +133,8 @@ export default function ContactPage() {
                 <h3 className="font-bold font-heading text-[#1E293B] text-lg mb-4">Follow Us</h3>
                 <div className="flex gap-3">
                   {[
-                    { href: 'https://instagram.com/pistonsociety', icon: InstagramIcon, label: 'Instagram' },
-                    { href: 'https://facebook.com/pistonsociety', icon: FacebookIcon, label: 'Facebook' },
+                    { href: instagram, icon: InstagramIcon, label: 'Instagram' },
+                    { href: facebook, icon: FacebookIcon, label: 'Facebook' },
                   ].map(({ href, icon: Icon, label }) => (
                     <a
                       key={label}
@@ -134,7 +149,7 @@ export default function ContactPage() {
                     </a>
                   ))}
                   <a
-                    href="https://tiktok.com/@pistonsociety"
+                    href={tiktok}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-[#E2E8F0] text-[#64748B] hover:border-[#2563EB] hover:text-[#2563EB] transition-all text-sm font-semibold"
@@ -146,14 +161,21 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Map placeholder */}
-              <div className="bg-[#F1F5F9] rounded-2xl h-52 flex items-center justify-center border border-[#E2E8F0]">
-                <div className="text-center text-[#94A3B8]">
-                  <MapPin className="h-8 w-8 mx-auto mb-2" aria-hidden="true" />
-                  <p className="text-sm">Google Maps embed</p>
-                  <p className="text-xs">(Configure via Admin Panel)</p>
+              {/* Map */}
+              {settings.google_maps_embed ? (
+                <div
+                  className="bg-[#F1F5F9] rounded-2xl overflow-hidden border border-[#E2E8F0] [&_iframe]:w-full [&_iframe]:h-52 [&_iframe]:block"
+                  dangerouslySetInnerHTML={{ __html: settings.google_maps_embed }}
+                />
+              ) : (
+                <div className="bg-[#F1F5F9] rounded-2xl h-52 flex items-center justify-center border border-[#E2E8F0]">
+                  <div className="text-center text-[#94A3B8]">
+                    <MapPin className="h-8 w-8 mx-auto mb-2" aria-hidden="true" />
+                    <p className="text-sm">Google Maps embed</p>
+                    <p className="text-xs">(Configure via Admin Panel)</p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

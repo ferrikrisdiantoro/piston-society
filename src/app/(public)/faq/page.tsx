@@ -4,13 +4,19 @@ import { Accordion } from '@/components/ui/Accordion'
 import { Button } from '@/components/ui/Button'
 import { createClient } from '@/lib/supabase/server'
 import { generateFAQJsonLd } from '@/lib/utils/seo'
+import { getPageContent } from '@/lib/utils/settings'
 import type { FAQ } from '@/lib/types/database'
 import { ArrowRight } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'FAQ — Frequently Asked Questions',
-  description:
-    'Got questions about car subscriptions? Find answers to our most frequently asked questions about pricing, insurance, vehicles, how to get started, and more.',
+const DEFAULT_META_TITLE = 'FAQ — Frequently Asked Questions'
+const DEFAULT_META_DESC = 'Got questions about car subscriptions? Find answers to our most frequently asked questions about pricing, insurance, vehicles, how to get started, and more.'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getPageContent('faq')
+  return {
+    title: content?.meta_title || DEFAULT_META_TITLE,
+    description: content?.meta_description || DEFAULT_META_DESC,
+  }
 }
 
 const FALLBACK_FAQS: FAQ[] = [
@@ -45,8 +51,10 @@ async function getFAQs() {
 }
 
 export default async function FAQPage() {
-  const faqs = await getFAQs()
+  const [faqs, content] = await Promise.all([getFAQs(), getPageContent('faq')])
   const faqJsonLd = generateFAQJsonLd(faqs)
+  const heroTitle = content?.hero_title || 'Frequently Asked Questions'
+  const heroSubtitle = content?.hero_subtitle || "Everything you need to know about Piston Society's car subscription service."
 
   const byCategory = CATEGORIES.map((cat) => ({
     category: cat,
@@ -68,10 +76,10 @@ export default async function FAQPage() {
           <div className="container-custom">
             <p className="text-[#2563EB] font-semibold text-sm tracking-widest uppercase mb-4">FAQ</p>
             <h1 className="text-white font-heading font-bold text-4xl md:text-5xl mb-4">
-              Frequently Asked Questions
+              {heroTitle}
             </h1>
             <p className="text-white/70 text-lg max-w-xl leading-relaxed">
-              Everything you need to know about Piston Society&apos;s car subscription service.
+              {heroSubtitle}
             </p>
           </div>
         </section>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Car, Phone, Mail, MapPin } from 'lucide-react'
 import { InstagramIcon, FacebookIcon, TikTokIcon } from '@/components/ui/SocialIcons'
+import { DEFAULT_SETTINGS, type SiteSettings, telHref } from '@/lib/utils/settings'
 
 const quickLinks = [
   { href: '/', label: 'Home' },
@@ -16,9 +17,18 @@ const legalLinks = [
   { href: '/privacy', label: 'Privacy Policy' },
 ]
 
+interface FooterProps {
+  settings?: SiteSettings
+}
 
-export function Footer() {
+export function Footer({ settings }: FooterProps) {
   const currentYear = new Date().getFullYear()
+  const phone = settings?.business_phone || DEFAULT_SETTINGS.business_phone
+  const email = settings?.business_email || DEFAULT_SETTINGS.business_email
+  const address = settings?.business_address || DEFAULT_SETTINGS.business_address
+  const instagram = settings?.instagram_url || DEFAULT_SETTINGS.instagram_url
+  const facebook = settings?.facebook_url || DEFAULT_SETTINGS.facebook_url
+  const tiktok = settings?.tiktok_url || DEFAULT_SETTINGS.tiktok_url
 
   return (
     <footer className="bg-[#0F1A4F] text-white" role="contentinfo">
@@ -41,7 +51,7 @@ export function Footer() {
             {/* Social Media */}
             <div className="flex items-center gap-3">
               <a
-                href="https://instagram.com/pistonsociety"
+                href={instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-lg bg-white/5 text-[#94A3B8] hover:bg-[#2563EB] hover:text-white transition-all duration-200"
@@ -50,7 +60,7 @@ export function Footer() {
                 <InstagramIcon className="h-4 w-4" />
               </a>
               <a
-                href="https://facebook.com/pistonsociety"
+                href={facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-lg bg-white/5 text-[#94A3B8] hover:bg-[#2563EB] hover:text-white transition-all duration-200"
@@ -59,7 +69,7 @@ export function Footer() {
                 <FacebookIcon className="h-4 w-4" />
               </a>
               <a
-                href="https://tiktok.com/@pistonsociety"
+                href={tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-lg bg-white/5 text-[#94A3B8] hover:bg-[#2563EB] hover:text-white transition-all duration-200"
@@ -106,26 +116,26 @@ export function Footer() {
             <ul className="space-y-3" role="list">
               <li>
                 <a
-                  href="tel:+61423771678"
+                  href={telHref(phone)}
                   className="flex items-start gap-3 text-[#94A3B8] text-sm hover:text-[#2563EB] transition-colors group"
                 >
                   <Phone className="h-4 w-4 mt-0.5 flex-shrink-0 group-hover:text-[#2563EB]" aria-hidden="true" />
-                  +61 423 771 678
+                  {phone}
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@pistonsociety.com.au"
+                  href={`mailto:${email}`}
                   className="flex items-start gap-3 text-[#94A3B8] text-sm hover:text-[#2563EB] transition-colors group"
                 >
                   <Mail className="h-4 w-4 mt-0.5 flex-shrink-0 group-hover:text-[#2563EB]" aria-hidden="true" />
-                  info@pistonsociety.com.au
+                  {email}
                 </a>
               </li>
               <li>
                 <div className="flex items-start gap-3 text-[#94A3B8] text-sm">
                   <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
-                  <span>Sydney, NSW, Australia</span>
+                  <span>{address}</span>
                 </div>
               </li>
             </ul>

@@ -1,28 +1,17 @@
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppWidget } from '@/components/layout/WhatsAppWidget'
-import { createClient } from '@/lib/supabase/server'
+import { getSiteSettings } from '@/lib/utils/settings'
 
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
-  let logoUrl: string | undefined
-  try {
-    const supabase = await createClient()
-    const { data } = await supabase
-      .from('site_settings')
-      .select('value')
-      .eq('key', 'logo_url')
-      .single()
-    logoUrl = data?.value ?? undefined
-  } catch {
-    logoUrl = undefined
-  }
+  const settings = await getSiteSettings()
 
   return (
     <>
-      <Navbar logoUrl={logoUrl} />
+      <Navbar logoUrl={settings.logo_url} />
       <main className="flex-1">{children}</main>
-      <Footer />
-      <WhatsAppWidget />
+      <Footer settings={settings} />
+      <WhatsAppWidget whatsappNumber={settings.whatsapp_number} />
     </>
   )
 }
