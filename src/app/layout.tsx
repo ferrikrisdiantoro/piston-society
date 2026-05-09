@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import { Outfit, Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { Toaster } from 'sonner'
 import { createClient } from '@/lib/supabase/server'
+
+const GOOGLE_ADS_ID = 'AW-18125274359'
 
 const outfit = Outfit({
   variable: '--font-outfit',
@@ -101,6 +104,18 @@ export default function RootLayout({
       className={`${outfit.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#F8FAFC] text-[#1E293B]">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ADS_ID}');
+          `}
+        </Script>
         {children}
         <Toaster position="bottom-right" richColors />
       </body>
